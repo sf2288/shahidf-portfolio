@@ -57,7 +57,7 @@ export default {
     },
     {
       rel: "icon",
-      href: "./assets/sss_favicon.png"
+      href: "./assets/shahid-farooqui.webp"
     }
   ]
 };
