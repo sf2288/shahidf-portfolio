@@ -93,6 +93,7 @@ const Portfolio = ({ isPortfolioSectionInView, hasLoadedOnce }) => {
       hidden: true
     }
   ].filter(d => !d?.hidden);
+
   const [view, setView] = React.useState(TYPE_LIST);
   // const [selectedProject, setSelectedProject] = React.useState();
 
