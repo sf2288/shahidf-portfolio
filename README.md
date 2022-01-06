@@ -7,7 +7,6 @@ Hi there, I am SHAHID FAROOQUI, a Frontend Developer from INDIA 🦄. This is my
 - [Material UI](https://mui.com/)
 - [Eslint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
-- [Husky](https://typicode.github.io/husky/#/)
 
 Also includes:
 
