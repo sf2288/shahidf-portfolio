@@ -1,0 +1,36 @@
+$colorPrimary: rgb(51, 51, 51);
+$colorSecondary: rgb(91, 112, 131);
+$colorBlue: #556cd6; //#6200EE
+$colorPurple: #131B52;
+$colorLightGray: #F2F3F5;
+$colorGray: gray;
+$colorGrayBg: #F9F9F9;
+$colorLighterGray: #cecece;
+$colorGreen: #4DA258;
+$colorDanger: rgb(220, 0, 78);
+$colorWhite: #FFF;
+$borderColor: rgba(51, 51, 51, 0.07);
+$cardShadow: 0 2px 6px -2px rgb(0 106 194 / 20%);
+$border: 1px solid #eaeaea;
+
+
+@keyframes morph {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(20px);
+  }
+}

@@ -1,0 +1,193 @@
+@import "../../../styles/variables";
+
+.firstSection {
+  position: relative;
+  //display: none;
+  //padding: 15rem 0;
+  height: 95vh;
+
+ /* .availability {
+    position: fixed;
+    z-index: 1000;
+    top: 18px;
+    right: 4%;
+  }*/
+
+  .about {
+
+    .title {
+      //font-family: 'Pacifico', cursive;
+      //font-size: 70px;
+      //font-weight: 900;
+      //padding-bottom: 1rem;
+
+      /*To Color the text from bottom*/
+      /*background-image: linear-gradient(
+                      120deg,#f4cf58,#f4cf58);
+      background-repeat: no-repeat;
+      background-size: 100% 0.4em;
+      background-position: 0 90%;*/
+    }
+
+    .subTitle {
+      //width: 80%;
+
+      span {
+        border-bottom: 2px solid;
+        //color: $colorBlue
+      }
+    }
+
+    .mainCTAs {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .btnGetInTouch {
+        width: 220px;
+        //height: 50px;
+        font-size: 20px;
+        text-transform: inherit;
+        border-radius: 50px;
+
+        .icon {
+          transform: rotate(330deg);
+          margin-left: 1rem;
+          padding-bottom: 0.5rem;
+        }
+      }
+
+      .btnDownloadCv {
+        width: 220px;
+        //height: 50px;
+        font-size: 20px;
+        margin-left: 1.5rem;
+        text-transform: inherit;
+        border-radius: 50px;
+
+        .icon {
+          margin-left: 1rem;
+        }
+      }
+    }
+
+    .social {
+      margin: 2rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .socialIcon {
+        padding: 15px;
+      }
+    }
+
+    .scrollDownArrow {
+      margin-bottom: 2rem;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 50px;
+      height: 50px;
+      animation: scroll ease 2s infinite;
+      cursor: pointer;
+    }
+
+    .avatar {
+      width: 100%;
+      text-align: center;
+      position: relative;
+
+      .image {
+        content: "";
+        position: absolute;
+        top: 0 !important;
+        left: 0 !important;;
+        right: 0 !important;
+        bottom: 0 !important;
+        padding: 3px !important;
+        border-radius: 100%;
+        border: 2px solid transparent !important;
+        background: linear-gradient(45deg, #fde68a, #d8b4fe) border-box !important;
+        //background: linear-gradient(45deg, #fde68a, #045ae6) border-box !important;
+        -webkit-mask-composite: unset;
+        mask-composite: exclude;
+      }
+    }
+  }
+}
+
+@media only screen and(max-width: 1024px) {
+  .firstSection {
+    .about {
+      .title {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+
+@media only screen and(max-width: 768px) {
+  .firstSection {
+    //padding: 11rem 0;
+
+    .about {
+      display: flex;
+      flex-direction: column-reverse;
+
+      .avatar {
+        text-align: left;
+        height: 120px;
+        width: 120px;
+        margin-bottom: 2rem;
+      }
+
+      .title {
+        margin-top: 3rem
+      }
+
+      .subTitle {
+        width: 100%;
+      }
+
+      .scrollDownArrow {
+        left: 45%
+      }
+
+      /*.social {
+        width: 100%;
+        justify-content: center;
+      }*/
+    }
+  }
+}
+
+
+@media only screen and(max-width: 425px) {
+  .firstSection {
+    padding: 8rem 0;
+    height: unset;
+
+    .about {
+      .subTitle {
+        font-size: 1.2rem
+      }
+
+      .mainCTAs {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-direction: column;
+
+        .btnDownloadCv {
+          margin-left: 0;
+        }
+      }
+
+      .scrollDownArrow {
+        display: none;
+      }
+    }
+  }
+}
