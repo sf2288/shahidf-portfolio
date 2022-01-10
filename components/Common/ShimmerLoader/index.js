@@ -21,13 +21,12 @@ const toBase64 = (str) =>
     : window.btoa(str);
 
 const Shimmer = ({ src, alt, className, height, width }) => (
-  <Image alt={alt}
-         src={src}
+  <Image src={src}
+         alt={alt}
          className={className}
-         placeholder="blur"
-         blurDataURL={src}
-         loading="lazy"
-    // blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+         // placeholder="blur"
+    // blurDataURL={src}
+    //      blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
          quality={100}
          height={height}
          width={width}

@@ -1,12 +1,19 @@
 import { Container, Grid, Typography } from "@mui/material";
 import style from "./Styles.module.scss";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, SkillsList } from "../../../utils";
 import { TitlePattern } from "../../Common/TitlePattern";
 import { IMAGES_BUCKET_URL } from "../../../utils/constants";
 import Image from "next/image";
 
 const Skills = ({ hasSkillsLoadedOnce, isSkillsSectionInView }) => {
+  const [skillsList, setSkillsList] = useState([]);
+
+  useEffect(() => {
+    if (isSkillsSectionInView) {
+      setSkillsList(SkillsList);
+    }
+  }, [isSkillsSectionInView]);
 
   return <section id={Routes[4].id} className={`${style.skillsSection} commonSecondarySection`}>
     <Container maxWidth="lg">
@@ -25,7 +32,7 @@ const Skills = ({ hasSkillsLoadedOnce, isSkillsSectionInView }) => {
     <Container maxWidth="lg"
                className={`${style.skillsContainer} ${isSkillsSectionInView || hasSkillsLoadedOnce ? "visible" : "invisible"}`}>
       <Grid container>
-        {SkillsList.map((d) => {
+        {skillsList.map((d) => {
           const url = `${IMAGES_BUCKET_URL}${d?.url}`;
           return <Grid item lg={3} sm={4} xs={6} className={style.skillsList} key={d?.label}>
             <div className={style.skill}>
