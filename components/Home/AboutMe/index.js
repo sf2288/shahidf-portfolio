@@ -9,17 +9,15 @@ import { COUNTRY } from "../../../utils/constants";
 
 const LottieComponent = dynamic(() => import("../../Common/LottieComponent"));
 
-const AboutMe = ({ hasLoadedOnce, isAboutMeSectionInView, isPortfolioSectionInView }) => {
+const AboutMe = ({ hasLoadedOnce, isAboutMeSectionInView }) => {
   const [animationData, setAnimationData] = useState(null);
 
   useEffect(() => {
-    if (isPortfolioSectionInView) {
-      (async function() {
-        const animationJson = (await import("../../../public/lotties")).default;
-        setAnimationData(animationJson);
-      })();
-    }
-  }, [isPortfolioSectionInView]);
+    (async function() {
+      const animationJson = (await import("../../../public/lotties")).default;
+      setAnimationData(animationJson);
+    })();
+  }, []);
 
   const renderAnimation = useMemo(() => <LottieComponent lottieJson={animationData}
                                                          style={{ maxWidth: "100%" }}/>, [animationData]);
