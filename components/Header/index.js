@@ -46,7 +46,7 @@ const Header = () => {
 
   const headerList = () => <ul className={style.menu}>
     {Routes.map((d) => <li key={d?.route} onClick={() => handleChangeRoute(d?.route)}>
-      <a href={d?.route} className={`/${d?.route}` === asPath ? style.selected : ""}>
+      <a href={d?.route} className={`/${d?.route}` === asPath ? style.selected : ""} rel="noopener noreferrer">
         {d?.title}
       </a>
     </li>)}

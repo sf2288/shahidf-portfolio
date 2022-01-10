@@ -166,7 +166,7 @@ const Footer = () => {
         </Grid>
         <Grid item md={4} sm={12} className={style.contactInfo}>
           <div className={style.icon}>
-            <a href={MY_SOCIAL_PROFILES[3].url} target={MY_SOCIAL_PROFILES[3].target}>
+            <a href={MY_SOCIAL_PROFILES[3].url} target={MY_SOCIAL_PROFILES[3].target} rel="noopener noreferrer">
               <IconButton aria-label="Phone"
                           color="primary"
                           size="large"
@@ -176,7 +176,7 @@ const Footer = () => {
             </a>
           </div>
           <div className={style.detail}>
-            <a href={MY_SOCIAL_PROFILES[3].url} target={MY_SOCIAL_PROFILES[3].target}>
+            <a href={MY_SOCIAL_PROFILES[3].url} target={MY_SOCIAL_PROFILES[3].target} rel="noopener noreferrer">
               <Typography variant="h6" component="div">
                 Phone
               </Typography>
@@ -188,7 +188,7 @@ const Footer = () => {
         </Grid>
         <Grid item md={4} sm={12} className={style.contactInfo}>
           <div className={style.icon}>
-            <a href={`mailto:${EMAIL_ID}`}>
+            <a href={`mailto:${EMAIL_ID}`} rel="noopener noreferrer">
               <IconButton aria-label="Email"
                           color="primary"
                           size="large"
@@ -198,7 +198,7 @@ const Footer = () => {
             </a>
           </div>
           <div className={style.detail}>
-            <a href={`mailto:${EMAIL_ID}`}>
+            <a href={`mailto:${EMAIL_ID}`} rel="noopener noreferrer">
               <Typography variant="h6" component="div">
                 Email
               </Typography>
