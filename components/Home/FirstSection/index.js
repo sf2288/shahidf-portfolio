@@ -1,14 +1,17 @@
-import { Container, Grid, IconButton, Tooltip, Typography, Zoom } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import style from "./Styles.module.scss";
 // import FadeInAnimation from "../../Common/FadeInAnimation";
 import React from "react";
 import { Routes } from "../../../utils";
-import { COUNTRY, CV_URL, MY_NAME, MY_PHOTO } from "../../../utils/constants";
+import { COUNTRY, CV_URL, MY_FULL_NAME_PHOTO, MY_NAME, MY_PHOTO } from "../../../utils/constants";
 import Button from "@mui/material/Button";
 import { ArrowDownward, Send } from "@mui/icons-material";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 
-const FirstSection = ({ socialIcons }) => {
+const SocialIconsComponent = dynamic(() => import("../../Common/SocialIconsComponent"));
+
+const FirstSection = () => {
 
   const handleScrollInto = (id) => {
     const ele = document.getElementById(id);
@@ -23,10 +26,10 @@ const FirstSection = ({ socialIcons }) => {
     <Container maxWidth="md">
       <Grid container className={style.about}>
         <Grid item md={8} sm={12}>
-          <Image src={"/assets/my_full_name.webp"}
+          <Image src={MY_FULL_NAME_PHOTO}
                  alt={MY_NAME}
                  placeholder="blur"
-                 blurDataURL={"/assets/my_full_name.webp"}
+                 blurDataURL={MY_FULL_NAME_PHOTO}
                  height={103}
                  width={514}/>
           {/*<Typography variant="h2" className={style.title}>{MY_NAME}</Typography>*/}
@@ -38,23 +41,9 @@ const FirstSection = ({ socialIcons }) => {
             {/*I build things for the web.*/}
             Specialized in creating Responsive, Minimal and Interactive user interfaces.
           </Typography>
-          <div className={style.social}>
-            {socialIcons.map(d => {
-              return <a key={d?.title} href={d?.url} target={d?.target} rel="noopener noreferrer">
-                <Tooltip TransitionComponent={Zoom} title={d?.title}>
-                  <IconButton aria-label={d?.title}
-                              color="primary"
-                              size="large"
-                              className={style.socialIcon}>
-                    <img src={d?.image?.img?.src}
-                         alt={d?.image?.img?.src}
-                         height={25}
-                         width={25}/>
-                  </IconButton>
-                </Tooltip>
-              </a>;
-            })}
-          </div>
+
+          <SocialIconsComponent/>
+
           <div className={style.mainCTAs}>
             <Button variant="contained" className={style.btnGetInTouch}
                     onClick={() => handleScrollInto(Routes[4].id)}>

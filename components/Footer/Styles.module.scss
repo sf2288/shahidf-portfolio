@@ -62,17 +62,29 @@
       }*/
     }
 
-    .submitButton {
-      width: 250px;
-      margin-top: 1rem;
-      padding: 0.5rem;
-      border-radius: 50px;
-      font-size: 20px;
+    .footerCTA {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
 
-      .icon {
-        transform: rotate(330deg);
-        margin-left: 1rem;
-        padding-bottom: 0.5rem;
+      .submitButtonContainer {
+        display: flex;
+        align-items: center;
+        margin-top: 1rem;
+
+        .submitButton {
+          width: 250px;
+          margin-right: 1rem;
+          padding: 0.5rem;
+          border-radius: 50px;
+          font-size: 20px;
+
+          .icon {
+            transform: rotate(330deg);
+            margin-left: 1rem;
+            padding-bottom: 0.5rem;
+          }
+        }
       }
     }
 

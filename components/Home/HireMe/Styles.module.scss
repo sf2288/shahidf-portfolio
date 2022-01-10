@@ -1,0 +1,37 @@
+@import "../../../styles/variables";
+
+.grid {
+  margin: 2rem auto;
+
+  .hireMe {
+    margin: 3rem 0;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px 0 rgb(0 0 0 / 10%);
+    background: $colorBlue;
+    color: $colorWhite;
+
+    .textCenter {
+      text-align: center;
+
+      .projectName {
+        margin: auto auto 16px;
+      }
+    }
+
+    .hireMeButton {
+      width: 220px;
+      font-size: 20px;
+      text-transform: inherit;
+      border-radius: 50px;
+      background: $colorWhite;
+      color: $colorBlue;
+    }
+
+    .hireMeSocialButton {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

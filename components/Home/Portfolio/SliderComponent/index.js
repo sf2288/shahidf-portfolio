@@ -6,6 +6,7 @@ import style from "../Styles.module.scss";
 import { useTheme } from "@mui/styles";
 import { Button, MobileStepper } from "@mui/material";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
+import { IMAGES_BUCKET_URL } from "../../../../utils/constants";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -13,7 +14,7 @@ export const SliderComponent = ({ index: i, data, view, TYPE_GRID }) => {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState({});
 
-  const maxSteps = data?.images.length;
+  const maxSteps = data?.images && data?.images.length;
   const step = Object.keys(activeStep).length && activeStep[i];
 
   const handleNext = (parentIndex) => {
@@ -33,13 +34,13 @@ export const SliderComponent = ({ index: i, data, view, TYPE_GRID }) => {
   return <>
     <span className={style.stepCounter}>{`${step + 1}/${maxSteps}`}</span>
     <SwipeableViews index={activeStep[i]}
-                            axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-                            onChangeIndex={handleStepChange}
-                            enableMouseEvents>
-      {data?.images.map((image, j) => {
+                    axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+                    onChangeIndex={handleStepChange}
+                    enableMouseEvents>
+      {data?.images && data?.images && data?.images.map((image, j) => {
         return <div key={`${i}+${j}`}
                     className={`${style.sliderImages} ${view === TYPE_GRID ? style.sliderImagesGrid : ""}`}>
-          <Shimmer src={image} alt={image} className={style.image}/>
+          <Shimmer src={`${IMAGES_BUCKET_URL}${image}`} alt={image} className={style.image}/>
         </div>;
       })}
     </SwipeableViews>

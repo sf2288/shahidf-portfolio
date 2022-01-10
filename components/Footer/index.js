@@ -3,11 +3,13 @@ import style from "./Styles.module.scss";
 import {
   Button,
   Card,
+  CircularProgress,
   Container,
   Grid,
   IconButton,
   Input,
   InputAdornment,
+  Slider,
   Typography,
   useMediaQuery,
   useTheme
@@ -16,18 +18,19 @@ import { Clear, Email, LocationOn, Send, WhatsApp } from "@mui/icons-material";
 import {
   COUNTRY,
   EMAIL_ID,
+  INITIAL_VALUE_BUDGET,
   LATITUDE,
   LONGITUDE,
   MAX_BUDGET,
   MIN_BUDGET,
   MY_NAME,
   MY_SOCIAL_PROFILES,
-  PHONE_NUMBER
+  PHONE_NUMBER,
+  REGEX_ONLY_NUMBERS
 } from "../../utils/constants";
 import React, { useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import { TitlePattern } from "../Common/TitlePattern";
-import Slider from "@mui/material/Slider";
 
 const MapComponent = dynamic(() => import("./../Common/MapComponent"));
 
@@ -38,10 +41,12 @@ const Footer = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [budget, setBudget] = useState([MIN_BUDGET, 5000]);
+  const [budget, setBudget] = useState([MIN_BUDGET, INITIAL_VALUE_BUDGET]);
   const [message, setMessage] = useState("");
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const [isLoading, setIsLoading] = useState(false);
+  const [emailMessage, setEmailMessage] = useState("");
 
   const handleNameChange = e => {
     setName(e?.target?.value);
@@ -52,7 +57,10 @@ const Footer = () => {
   };
 
   const handlePhoneChange = e => {
-    setPhone(e?.target?.value);
+    const value = e?.target?.value;
+    if (value === "" || REGEX_ONLY_NUMBERS.test(value)) {
+      setPhone(value);
+    }
   };
 
   const handleMessageChange = e => {
@@ -73,6 +81,10 @@ const Footer = () => {
 
   const handleMessageClear = () => {
     setMessage("");
+  };
+
+  const handleResetBudget = () => {
+    setBudget([MIN_BUDGET, INITIAL_VALUE_BUDGET]);
   };
 
   const renderMap = useMemo(() => <MapComponent zoom={14}
@@ -97,15 +109,37 @@ const Footer = () => {
     }
   };
 
-  return <section id={Routes[4].id} className={`${style.contacts} commonSecondarySection`}>
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    const data = { name, email, phone, min_budget: `$${budget[0]}`, max_budget: `$${budget[1]}`, message };
+    setIsLoading(true);
+    await fetch("/api/send-email", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    }).then(r => r?.json()).then(r => {
+      setIsLoading(false);
+      setEmailMessage(r?.data?.message);
+      handleNameClear();
+      handlePhoneClear();
+      handleEmailClear();
+      handleResetBudget();
+      handleMessageClear();
+    });
+  };
+
+  return <section id={Routes[5].id} className={`bgGray ${style.contacts} commonSecondarySection`}>
     <Container maxWidth="lg">
       <Grid container>
         <Grid item>
           <Typography variant="div" component="h1" className="title">
-            <TitlePattern/> {Routes[4].title}
+            <TitlePattern/> {Routes[5].title}
           </Typography>
           <Typography variant="div" component="h2" className="subTitle">
-            Let’s create something amazing together
+            {Routes[5].subTitle}
           </Typography>
         </Grid>
       </Grid>
@@ -179,7 +213,7 @@ const Footer = () => {
     <Container maxWidth="lg" className={style.form}>
       <Grid container spacing={5}>
         <Grid item md={6} sm={12} xs={12}>
-          <form>
+          <form onSubmit={sendEmail}>
             <Grid container>
               <Grid item xs={12}>
                 <Input placeholder="David Scott"
@@ -212,7 +246,6 @@ const Footer = () => {
                 <Input placeholder="+44 7400 123456"
                        value={phone}
                        type="tel"
-                       inputProps={{ pattern: "[0-9]{3}-[0-9]{2}-[0-9]{3}" }}
                        onChange={handlePhoneChange}
                        className={style.input}
                        endAdornment={
@@ -272,10 +305,17 @@ const Footer = () => {
                          </InputAdornment> : null}
                        placeholder="Hi there! I would like to get in touch with you to inquiry about a project."/>
               </Grid>
-              <Grid item sm={12}>
-                <Button type="submit" variant="contained" className={style.submitButton}>
-                  Send Message <Send className={style.icon} fontSize="large"/>
-                </Button>
+              <Grid item sm={12} className={style.footerCTA}>
+                <div className={style.submitButtonContainer}>
+                  <Button type="submit" variant="contained" className={style.submitButton} disabled={isLoading}>
+                    Send Message <Send className={style.icon} fontSize="large"/>
+                  </Button>
+                  {isLoading ? <CircularProgress size="2rem"/> : null}
+                </div>
+
+                <Typography variant="h6" className={emailMessage ? "visible" : "invisible"}>
+                  {emailMessage}
+                </Typography>
               </Grid>
             </Grid>
           </form>
@@ -289,7 +329,9 @@ const Footer = () => {
     </Container>
     <Container maxWidth="lg">
       <Typography variant="h6" className={style.subFooter}>
-        Made with<span className={style.love}>&nbsp;❤&nbsp;</span>by {MY_NAME}
+        Made with<span className={style.love}>&nbsp;❤&nbsp;</span>by <b>{MY_NAME}</b>
+        &nbsp;-&nbsp;
+        &copy; Copyright {new Date().getFullYear()}
       </Typography>
     </Container>
   </section>;

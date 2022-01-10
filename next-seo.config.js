@@ -1,6 +1,14 @@
-import { META_DESCRIPTION, META_KEYWORD, META_TITLE, MY_NAME, MY_PHOTO, TWITTER_HANDLE } from "./utils/constants";
+import {
+  META_DESCRIPTION,
+  META_KEYWORD,
+  META_TITLE,
+  MY_DOMAIN,
+  MY_NAME,
+  MY_PHOTO,
+  TWITTER_HANDLE
+} from "./utils/constants";
 
-const url = typeof window !== "undefined" ? window.location.href : "https://google.com";
+const url = typeof window !== "undefined" ? window.location.origin : MY_DOMAIN;
 
 export default {
   title: META_TITLE,
@@ -54,10 +62,6 @@ export default {
     {
       rel: "apple-mobile-web-app-capable",
       href: "yes"
-    },
-    {
-      rel: "icon",
-      href: "./assets/shahid-farooqui.webp"
     }
   ]
 };

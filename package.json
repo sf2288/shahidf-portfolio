@@ -1,21 +1,17 @@
 {
   "name": "shahidf-portfolio",
   "private": true,
-  "description": "Hi there, I am SHAHID FAROOQUI, a Frontend Developer from INDIA 🦄. This is my Personal portfolio site.",
+  "description": "Hi there, I am SHAHID FAROOQUI, a Frontend Developer from INDIA. This is my Personal portfolio site.",
   "keywords": [
     "nextjs",
     "mui",
     "material-ui",
-    "airbnb-style-guides",
-    "husky",
-    "prettier"
+    "airbnb-style-guides"
   ],
   "scripts": {
     "dev": "next dev -p 3002",
-    "build": "GENERATE_SOURCEMAP=false next build",
-    "start": "next start -p 3002",
-    "format": "prettier --ignore-path .prettierignore --write .",
-    "prepare": "husky install"
+    "build": "set \"GENERATE_SOURCEMAP=false\" && next build",
+    "start": "next start -p 3002"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
@@ -25,6 +21,7 @@
     "@mui/material": "^5.2.4",
     "@mui/styles": "^5.2.3",
     "@plaiceholder/next": "^2.2.0",
+    "@sendgrid/mail": "^7.6.0",
     "framer-motion": "^5.5.5",
     "google-maps-react": "^2.0.6",
     "next": "12.0.7",
@@ -39,8 +36,6 @@
     "sharp": "^0.29.3"
   },
   "devDependencies": {
-    "husky": "^7.0.4",
-    "prettier": "^2.5.1",
     "sass": "^1.45.0"
   }
 }

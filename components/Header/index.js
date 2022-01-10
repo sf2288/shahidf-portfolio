@@ -5,7 +5,7 @@ import { Routes } from "../../utils";
 import { Menu } from "@mui/icons-material";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { MY_NAME } from "../../utils/constants";
+import { MY_NAME, MY_SHORT_NAME_PHOTO } from "../../utils/constants";
 import Image from "next/image";
 
 const Drawer = dynamic(() => import("./../Drawer"));
@@ -63,10 +63,10 @@ const Header = () => {
             </Typography>
           </a>*/}
           <span className={style.logo} onClick={() => handleChangeRoute("/")}>
-          <Image src={"/assets/my_short_name.webp"}
+          <Image src={MY_SHORT_NAME_PHOTO}
                  alt={MY_NAME}
                  placeholder="blur"
-                 blurDataURL={"/assets/my_short_name.webp"}
+                 blurDataURL={MY_SHORT_NAME_PHOTO}
                  height={37}
                  width={133}/>
                  </span>

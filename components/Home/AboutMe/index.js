@@ -31,7 +31,7 @@ const AboutMe = ({ hasLoadedOnce, isAboutMeSectionInView, isPortfolioSectionInVi
             <TitlePattern/> {Routes[2].title}
           </Typography>
           <Typography variant="div" component="h2" className={`subTitle ${style.subTitle}`}>
-            A passionate Front-End Developer based in {COUNTRY}
+            {Routes[2].subTitle} {COUNTRY}
           </Typography>
         </Grid>
       </Grid>

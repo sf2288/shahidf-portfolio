@@ -73,7 +73,7 @@ const WorkHistory = ({ hasLoadedOnce, isAboutMeSectionInView }) => {
             <TitlePattern/> {Routes[3].title}
           </Typography>
           <Typography variant="div" component="h2" className="subTitle">
-            Working Period
+            {Routes[3].subTitle}
           </Typography>
         </Grid>
       </Grid>
