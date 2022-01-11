@@ -1,14 +1,10 @@
 import React from "react";
 import SwipeableViews from "react-swipeable-views";
-import { autoPlay } from "react-swipeable-views-utils";
-import Shimmer from "../../../Common/ShimmerLoader";
 import style from "../Styles.module.scss";
 import { useTheme } from "@mui/styles";
 import { Button, MobileStepper } from "@mui/material";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import { IMAGES_BUCKET_URL } from "../../../../utils/constants";
-
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 export const SliderComponent = ({ index: i, data, view, TYPE_GRID }) => {
   const theme = useTheme();
@@ -40,7 +36,11 @@ export const SliderComponent = ({ index: i, data, view, TYPE_GRID }) => {
       {data?.images && data?.images && data?.images.map((image, j) => {
         return <div key={`${i}+${j}`}
                     className={`${style.sliderImages} ${view === TYPE_GRID ? style.sliderImagesGrid : ""}`}>
-          <Shimmer src={`${IMAGES_BUCKET_URL}${image}`} alt={image} className={style.image}/>
+          <img src={`${IMAGES_BUCKET_URL}${image}`}
+               alt={image}
+               className={style.image}
+               loading="lazy"
+               sizes="50vw"/>
         </div>;
       })}
     </SwipeableViews>

@@ -164,12 +164,12 @@ based on Play store Reviews Ratings, Downloads, etc using NLP-based Rest APIs.</
     note: "Client has moved web app to their personal server as a result Login will not work",
     images:
       [
-        "sentient/Sentient-dashboard-small.webp",
-        "sentient/Sentient-Landing-page.webp",
+        "sentient/Sentient-Landing-page1.webp",
+        "sentient/Sentient-Landing-page2.webp",
         "sentient/Sentient+Dashboard.webp",
         "sentient/Sentient-App-Pros-Cons.webp",
-        "sentient/Sentient-Dashboard-mobile.webp",
         "sentient/Sentient-Product-Details-Modal.webp",
+        "sentient/Sentient-Dashboard-mobile.webp",
         "sentient/Sentient-Pros-Cons-mobile.webp"
       ]
   },
@@ -192,10 +192,11 @@ specific Page Views and Events and Mixpanel events to track user interactions wi
     project_url: "https://www.luxembourgexpats.lu/",
     images:
       [
-        "luxexpats/Add+New+Post+Modal.webp",
-        "luxexpats/Real+Estate+in+Luxembourg.webp",
-        "luxexpats/Real+Estate+Details+page.webp",
-        "luxexpats/Real+Estate+Payment.webp",
+        "luxexpats/Add+New+Post+Modal+new.webp",
+        "luxexpats/Real-Estate-in-Luxembourg-new.webp",
+        "luxexpats/Real-Estate-Details-Page1.webp",
+        "luxexpats/Real-Estate-Details-Page2.webp",
+        "luxexpats/Real-Estate-Payment-new.webp",
         "luxexpats/Users+Chat1.webp"
       ]
   },

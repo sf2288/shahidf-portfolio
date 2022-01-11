@@ -67,7 +67,7 @@ const Portfolio = ({ hasLoadedOnce, isPortfolioSectionInView }) => {
 
   const renderPortfolios = useMemo(() => <>
     {projects.map((d, i) => {
-      return <Grid key={i} id={d?.id} item md={view === TYPE_LIST ? 10 : 6} xs={12} className={style.grid}>
+      return <Grid key={i} id={d?.id} item md={10} xs={12} className={style.grid}>
         <FadeInWhenVisible>
           <div className={style.portfolioCard}>
             {d?.images && d.images.length ?

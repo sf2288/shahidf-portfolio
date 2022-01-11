@@ -34,7 +34,7 @@ export default {
   twitter: {
     handle: TWITTER_HANDLE,
     site: TWITTER_HANDLE,
-    cardType: "player"
+    cardType: "summary"
   },
   additionalMetaTags: [
     {
