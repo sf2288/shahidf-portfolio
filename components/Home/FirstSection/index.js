@@ -30,9 +30,10 @@ const FirstSection = () => {
                className={style.nameImage}
                placeholder="blur"
                loading="lazy"
+               width={515}
                height={103}/>
           <Typography variant="h5" className={style.subTitle} gutterBottom>
-            A meticulous Front-End Developer based in <span>{COUNTRY}</span>.
+            A meticulous <span className={style.subText}>Front-End Developer</span> based in {COUNTRY}.
           </Typography>
           <br/>
           <Typography variant="h5" className={style.subTitle}>

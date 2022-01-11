@@ -164,8 +164,8 @@ based on Play store Reviews Ratings, Downloads, etc using NLP-based Rest APIs.</
     note: "Client has moved web app to their personal server as a result Login will not work",
     images:
       [
-        "sentient/Sentient-Landing-page1.webp",
-        "sentient/Sentient-Landing-page2.webp",
+        "sentient/Sentient-Landing1.webp",
+        "sentient/Sentient-Landing2.webp",
         "sentient/Sentient+Dashboard.webp",
         "sentient/Sentient-App-Pros-Cons.webp",
         "sentient/Sentient-Product-Details-Modal.webp",

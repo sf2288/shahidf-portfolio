@@ -30,11 +30,10 @@
     }
 
     .subTitle {
-      //width: 80%;
-
-      span {
+      .subText {
+        color: $colorBlue;
         border-bottom: 2px solid;
-        //color: $colorBlue
+        font-weight: bold;
       }
     }
 

@@ -41,6 +41,9 @@
 
     .myImageContainer {
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       .myImage {
         position: absolute;

@@ -5,7 +5,6 @@ import {
   Chip,
   Container,
   Grid,
-  IconButton,
   List,
   ListItem,
   ListItemButton,
@@ -14,12 +13,14 @@ import {
   ToggleButtonGroup,
   Typography
 } from "@mui/material";
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { TitlePattern } from "../../Common/TitlePattern";
-import { SliderComponent } from "./SliderComponent";
-import { GridView, InfoOutlined, OpenInNew, Splitscreen } from "@mui/icons-material";
+import { GridView, InfoOutlined, Splitscreen } from "@mui/icons-material";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import dynamic from "next/dynamic";
+
+const SliderComponent = dynamic(() => import("./SliderComponent"));
 
 const TYPE_LIST = "LIST";
 const TYPE_GRID = "GRID";
@@ -46,11 +47,18 @@ const FadeInWhenVisible = ({ children }) => {
   </motion.div>;
 };
 
-const Portfolio = ({ hasLoadedOnce, isPortfolioSectionInView }) => {
+const Portfolio = () => {
+  const [portfolioRef, isPortfolioSectionInView] = useInView();
+  const [hasLoadedOnce, setHasPortfolioLoadedOnce] = useState(false);
 
   const [view, setView] = React.useState(TYPE_LIST);
   const [projects] = React.useState(ProjectsList);
-  // const [selectedProject, setSelectedProject] = React.useState();
+
+  useEffect(() => {
+    if (isPortfolioSectionInView) {
+      setHasPortfolioLoadedOnce(isPortfolioSectionInView);
+    }
+  }, [isPortfolioSectionInView]);
 
   const handleChange = newView => {
     setView(newView);
@@ -67,7 +75,7 @@ const Portfolio = ({ hasLoadedOnce, isPortfolioSectionInView }) => {
 
   const renderPortfolios = useMemo(() => <>
     {projects.map((d, i) => {
-      return <Grid key={i} id={d?.id} item md={10} xs={12} className={style.grid}>
+      return <Grid key={i} id={d?.id} item sm={10} xs={12} className={style.grid}>
         <FadeInWhenVisible>
           <div className={style.portfolioCard}>
             {d?.images && d.images.length ?
@@ -76,36 +84,28 @@ const Portfolio = ({ hasLoadedOnce, isPortfolioSectionInView }) => {
               </div> : null}
             <div className={style.projectInfo}>
               <div className={style.title}>
-                <Typography variant="h4" gutterBottom className={style.projectName}>
-                  {d?.project_name}
-                </Typography>
+                <a href={d?.project_url} target="_blank" rel="noopener noreferrer">
+                  <Typography variant="h4" gutterBottom className={style.projectName}>
+                    {d?.project_name}
+                  </Typography>
+                </a>
                 <Chip label={d?.type} color="primary" size="small" variant="outlined"/>
               </div>
-              {d?.project_url ? <Typography paragraph>
-                <a href={d?.project_url} target="_blank" rel="noopener noreferrer">
-                  <Chip label={
-                    <>
-                      {d?.project_url}
-
-                      <IconButton aria-label={d?.project_name} className={style.openInNewButton}>
-                        <OpenInNew fontSize="small" classes={{ root: "colorWhite" }}/>
-                      </IconButton>
-                    </>}
-                        color="primary" clickable/>
-                </a>
-              </Typography> : null}
 
               {d?.note ? <Alert severity="warning" icon={<InfoOutlined/>}>{d?.note}</Alert> : null}
 
               <div className={style.descriptionSection}>
                 {d?.description ? <>
-                  <Typography variant="div" component="h3" className={style.descriptionTitle}>Description:</Typography>
+                  <Typography variant="div" component="h3">Description:</Typography>
 
-                  <Typography paragraph dangerouslySetInnerHTML={{ __html: d?.description }}/>
+                  <Typography paragraph>
+                    <div dangerouslySetInnerHTML={{ __html: d?.description }}/>
+                  </Typography>
                 </> : null}
-                {d?.tags && d?.tags.length ? <div>
-                  {d?.tags.map(d => <Chip key={d} label={d} className={style.tags}/>)}
-                </div> : null}
+                <div>
+                  {d?.tags && d?.tags.length ? d?.tags.map(d => <Chip key={d} label={d}
+                                                                      className={style.tags}/>) : null}
+                </div>
               </div>
             </div>
           </div>
@@ -117,7 +117,7 @@ const Portfolio = ({ hasLoadedOnce, isPortfolioSectionInView }) => {
   return <section id={Routes[1].id} className={`bgGray ${style.portfolioSection} commonSecondarySection`}>
 
     <Container maxWidth="lg">
-      <Grid container>
+      <Grid container ref={portfolioRef}>
         <Grid item>
           <Typography variant="div" component="h1" className="title">
             <TitlePattern/> {Routes[1].title}

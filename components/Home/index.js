@@ -10,17 +10,8 @@ const WorkHistory = dynamic(() => import("./WorkHistory"));
 const Skills = dynamic(() => import("./Skills"));
 
 const HomeComponent = () => {
-  const [aboutMeRef, isAboutMeSectionInView] = useInView();
-  const [hasLoadedOnce, setHasLoadedOnce] = useState(false);
-  const [portfolioRef, isPortfolioSectionInView] = useInView();
   const [skillsRef, isSkillsSectionInView] = useInView();
   const [hasSkillsLoadedOnce, setHasSkillsLoadedOnce] = useState(false);
-
-  useEffect(() => {
-    if (isPortfolioSectionInView) {
-      setHasLoadedOnce(isPortfolioSectionInView);
-    }
-  }, [isPortfolioSectionInView]);
 
   useEffect(() => {
     if (isSkillsSectionInView) {
@@ -31,22 +22,13 @@ const HomeComponent = () => {
   return <main>
     <FirstSection/>
 
-    <div ref={portfolioRef}>
-      <Portfolio hasLoadedOnce={hasLoadedOnce}
-                 isPortfolioSectionInView={isPortfolioSectionInView}/>
-    </div>
+    <Portfolio/>
 
     <HireMe/>
 
-    <div ref={aboutMeRef}>
-      <AboutMe hasLoadedOnce={hasLoadedOnce}
-               isAboutMeSectionInView={isAboutMeSectionInView}
-               isPortfolioSectionInView={isPortfolioSectionInView}/>
-    </div>
+    <AboutMe/>
 
-    <div ref={aboutMeRef}>
-      <WorkHistory/>
-    </div>
+    <WorkHistory/>
 
     <div ref={skillsRef}>
       <Skills isSkillsSectionInView={isSkillsSectionInView}

@@ -6,7 +6,6 @@ import { Menu } from "@mui/icons-material";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { MY_NAME, MY_SHORT_NAME_PHOTO } from "../../utils/constants";
-import Image from "next/image";
 
 const Drawer = dynamic(() => import("./../Drawer"));
 
@@ -52,25 +51,17 @@ const Header = () => {
     </li>)}
   </ul>;
 
-  // return <nav id="nav_bar" className={`${style.nav} ${isPageScrolled ? `bgWhite ${style.shadow}` : ""}`}>
   return <nav id="nav_bar" className={style.nav}>
     <Container>
       <Grid container>
         <Grid item xs={12} className={style.container}>
-          {/*<a href={Routes[0]?.route} onClick={() => handleChangeRoute(Routes[0]?.route)}>
-            <Typography variant="h4" color="primary" className={style.logo}>
-              {MY_NAME}
-            </Typography>
-          </a>*/}
           <span className={style.logo} onClick={() => handleChangeRoute("/")}>
-          <Image src={MY_SHORT_NAME_PHOTO}
+            <img src={MY_SHORT_NAME_PHOTO}
                  alt={MY_NAME}
-                 placeholder="blur"
-                 blurDataURL={MY_SHORT_NAME_PHOTO}
+                 loading="lazy"
                  height={37}
                  width={133}/>
                  </span>
-          {/*<Typography variant="h2" className={style.logo}>{MY_SHORT_NAME}</Typography>*/}
           <IconButton aria-label="hamburg"
                       color="primary"
                       size="large"

@@ -6,7 +6,7 @@ import { Button, MobileStepper } from "@mui/material";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import { IMAGES_BUCKET_URL } from "../../../../utils/constants";
 
-export const SliderComponent = ({ index: i, data, view, TYPE_GRID }) => {
+const SliderComponent = ({ index: i, data, view, TYPE_GRID }) => {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState({});
 
@@ -40,7 +40,8 @@ export const SliderComponent = ({ index: i, data, view, TYPE_GRID }) => {
                alt={image}
                className={style.image}
                loading="lazy"
-               sizes="50vw"/>
+               height={650}
+               width={"100%"}/>
         </div>;
       })}
     </SwipeableViews>
@@ -63,3 +64,5 @@ export const SliderComponent = ({ index: i, data, view, TYPE_GRID }) => {
                    </Button> : null}/>
   </>;
 };
+
+export default SliderComponent;
