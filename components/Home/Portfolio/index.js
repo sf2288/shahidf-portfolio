@@ -85,15 +85,18 @@ const Portfolio = () => {
               </div> : null}
             <div className={style.projectInfo}>
               <div className={style.title}>
-                <a href={d?.project_url} target="_blank" rel="noopener noreferrer">
+                {d?.project_url ? <a href={d?.project_url} target="_blank" rel="noopener noreferrer">
                   <Typography variant="h4" gutterBottom className={style.projectName}>
                     {d?.project_name}
                   </Typography>
-                </a>
+                </a> : <Typography variant="h4" gutterBottom>
+                  {d?.project_name}
+                </Typography>}
                 <Chip label={d?.type} color="primary" size="small" variant="outlined"/>
               </div>
 
-              {d?.note ? <Alert severity="warning" icon={<InfoOutlined/>}>{d?.note}</Alert> : null}
+              {d?.note ?
+                <Alert severity="warning" icon={<InfoOutlined/>} className={style.alert}>{d?.note}</Alert> : null}
 
               <div className={style.descriptionSection}>
                 {d?.description ? <>
