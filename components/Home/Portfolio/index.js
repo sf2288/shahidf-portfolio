@@ -69,7 +69,7 @@ const Portfolio = () => {
     let ele = document.getElementById(id);
     if (ele) {
       ele.scrollIntoView(true);
-      ele.style.paddingTop = "5rem";
+      ele.style.paddingTop = "8rem";
       setSelectedProject(id);
     }
   };

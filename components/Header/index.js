@@ -5,7 +5,8 @@ import { Routes } from "../../utils";
 import { Menu } from "@mui/icons-material";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { MY_NAME, MY_SHORT_NAME_PHOTO } from "../../utils/constants";
+import { MY_SHORT_NAME } from "../../utils/constants";
+import Typography from "@mui/material/Typography";
 
 const Drawer = dynamic(() => import("./../Drawer"));
 
@@ -55,13 +56,15 @@ const Header = () => {
     <Container>
       <Grid container>
         <Grid item xs={12} className={style.container}>
-          <span className={style.logo} onClick={() => handleChangeRoute("/")}>
-            <img src={MY_SHORT_NAME_PHOTO}
+          {/*<span className={style.logo} onClick={() => handleChangeRoute("/")}>*/}
+          {/*<img src={MY_SHORT_NAME_PHOTO}
                  alt={MY_NAME}
                  loading="lazy"
                  height={37}
                  width={133}/>
-                 </span>
+                 </span>*/}
+          <Typography variant="h2" className={style.logo}
+                      onClick={() => handleChangeRoute("/")}>{MY_SHORT_NAME}</Typography>
           <IconButton aria-label="hamburg"
                       color="primary"
                       size="large"

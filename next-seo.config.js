@@ -39,7 +39,7 @@ export default {
   additionalMetaTags: [
     {
       name: "viewport",
-      content: "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
+      content: "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, user-scalable=0, viewport-fit=cover"
     },
     {
       name: "keyword",

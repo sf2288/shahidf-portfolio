@@ -3,7 +3,7 @@ import style from "./Styles.module.scss";
 // import FadeInAnimation from "../../Common/FadeInAnimation";
 import React from "react";
 import { Routes } from "../../../utils";
-import { COUNTRY, CV_URL, MY_FULL_NAME_PHOTO, MY_NAME, MY_PHOTO } from "../../../utils/constants";
+import { COUNTRY, CV_URL, MY_NAME, MY_PHOTO } from "../../../utils/constants";
 import Button from "@mui/material/Button";
 import { ArrowDownward, Send } from "@mui/icons-material";
 import dynamic from "next/dynamic";
@@ -25,12 +25,7 @@ const FirstSection = () => {
     <Container maxWidth="md">
       <Grid container className={style.about}>
         <Grid item md={8} sm={12} className={style.aboutContent}>
-          <img src={MY_FULL_NAME_PHOTO}
-               alt={MY_NAME}
-               className={style.nameImage}
-               loading="lazy"
-               width={514}
-               height={103}/>
+          <Typography variant="h2" className={style.title}>{MY_NAME}</Typography>
           <Typography variant="h5" className={style.subTitle} gutterBottom>
             A meticulous <span className={style.subText}>Front-End Developer</span> based in {COUNTRY}.
           </Typography>
@@ -43,7 +38,7 @@ const FirstSection = () => {
 
           <div className={style.mainCTAs}>
             <Button variant="contained" className={style.btnGetInTouch}
-                    onClick={() => handleScrollInto(Routes[4].id)}>
+                    onClick={() => handleScrollInto(Routes[5].id)}>
               Get In Touch <Send className={style.icon} fontSize="large"/>
             </Button>
             <Button href={CV_URL}

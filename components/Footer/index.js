@@ -216,7 +216,7 @@ const Footer = () => {
           <form onSubmit={sendEmail}>
             <Grid container>
               <Grid item xs={12}>
-                <Input placeholder="David Scott"
+                <Input placeholder="Dave Scott"
                        value={name}
                        required={true}
                        onChange={handleNameChange}
@@ -229,7 +229,7 @@ const Footer = () => {
                          </InputAdornment> : null}/>
               </Grid>
               <Grid item xs={12}>
-                <Input placeholder="david@example.com"
+                <Input placeholder="dave@example.com"
                        value={email}
                        required={true}
                        type="email"
@@ -272,22 +272,8 @@ const Footer = () => {
                   <Typography variant="h6" className={style.maxBudget}>
                     Max : ${budget[1]}
                   </Typography>
-                  {/*{BUDGET_LIST.map(d => {
-                    return <Grid key={d} item lg={4} md={6} sm={4} xs={12}>
-                      <Chip label={d}
-                            className={style.chip}
-                            classes={{ root: d === budget ? style.selected : style.nonSelected }}
-                            onClick={() => handleBudgetSelection(d)}
-                            onDelete={() => handleBudgetSelection(d)}
-                            deleteIcon={d === budget ? <CheckCircle classes={{ root: "colorWhite" }}/> :
-                              <CheckCircleOutline classes={{ root: "colorWhite" }}/>}
-                      />
-                    </Grid>;
-                  })}*/}
                 </Grid>
               </Grid>
-
-              {/*Add How did you find me selection. eg: https://michaelpumo.com/*/}
 
               <Grid item xs={12}>
                 <Input rows={5}

@@ -26,6 +26,11 @@ export default class MyDocument extends Document {
           {/*<link rel="preconnect" href={googleAnalyticsDomain}/>*/}
           {/*<link rel="dns-prefetch" href={googleAnalyticsDomain}/>*/}
 
+          <link rel="preload"
+                href="/fonts/rza-regular.woff2"
+                as="font"
+                crossOrigin=""/>
+
           <link rel="apple-touch-icon" sizes="180x180" href={`${IMAGES_BUCKET_URL}apple-touch-icon.webp`}/>
           <link rel="icon" type="image/png" sizes="32x32" href={`${IMAGES_BUCKET_URL}favicon-32x32.png`}/>
           <link rel="icon" type="image/png" sizes="16x16" href={`${IMAGES_BUCKET_URL}favicon-16x16.png`}/>
