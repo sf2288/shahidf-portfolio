@@ -51,8 +51,9 @@ const Portfolio = () => {
   const [portfolioRef, isPortfolioSectionInView] = useInView();
   const [hasLoadedOnce, setHasPortfolioLoadedOnce] = useState(false);
 
-  const [view, setView] = React.useState(TYPE_LIST);
-  const [projects] = React.useState(ProjectsList);
+  const [view, setView] = useState(TYPE_LIST);
+  const [projects] = useState(ProjectsList);
+  const [selectedProject, setSelectedProject] = useState();
 
   useEffect(() => {
     if (isPortfolioSectionInView) {
@@ -68,8 +69,8 @@ const Portfolio = () => {
     let ele = document.getElementById(id);
     if (ele) {
       ele.scrollIntoView(true);
-      ele.style.paddingTop = "4rem";
-      // setSelectedProject(id);
+      ele.style.paddingTop = "5rem";
+      setSelectedProject(id);
     }
   };
 
@@ -127,43 +128,43 @@ const Portfolio = () => {
           </Typography>
         </Grid>
       </Grid>
-    </Container>
-    <div className={`${style.projects} ${isPortfolioSectionInView || hasLoadedOnce ? "visible" : "invisible"}`}>
-      <nav className={style.nav}>
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemText primary="Projects in this Section" classes={{ primary: style.header }}/>
-            </ListItemButton>
-          </ListItem>
-          {projects.map((d) => {
-            return <ListItem key={d?.id} disablePadding>
-              <ListItemButton component="a" onClick={() => handleScrollInto(d?.id)}>
-                <ListItemText primary={d?.project_name}/>
+      <div className={`${style.projects} ${isPortfolioSectionInView || hasLoadedOnce ? "visible" : "invisible"}`}>
+        <nav className={style.nav}>
+          <List>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemText primary="Projects in this Section" classes={{ primary: style.header }}/>
               </ListItemButton>
-            </ListItem>;
-          })}
-        </List>
-      </nav>
+            </ListItem>
+            {projects.map((d) => {
+              return <ListItem key={d?.id} disablePadding>
+                <ListItemButton component="a" onClick={() => handleScrollInto(d?.id)}>
+                  <ListItemText primary={d?.project_name} className={selectedProject === d?.id ? style.selected : ""}/>
+                </ListItemButton>
+              </ListItem>;
+            })}
+          </List>
+        </nav>
 
-      <Container maxWidth="lg" className={style.portfolioContainer}>
-        <Grid container className={style.portfolioToggle}>
-          <Grid item>
-            <ToggleButtonGroup color="primary"
-                               value={view}
-                               exclusive>
-              <ToggleButton value={TYPE_LIST} aria-label={TYPE_LIST}
-                            onClick={() => handleChange(TYPE_LIST)}><Splitscreen/></ToggleButton>
-              <ToggleButton value={TYPE_GRID} aria-label={TYPE_GRID}
-                            onClick={() => handleChange(TYPE_GRID)}><GridView/></ToggleButton>
-            </ToggleButtonGroup>
+        <Container maxWidth="lg" className={style.portfolioContainer}>
+          <Grid container className={style.portfolioToggle}>
+            <Grid item>
+              <ToggleButtonGroup color="primary"
+                                 value={view}
+                                 exclusive>
+                <ToggleButton value={TYPE_LIST} aria-label={TYPE_LIST}
+                              onClick={() => handleChange(TYPE_LIST)}><Splitscreen/></ToggleButton>
+                <ToggleButton value={TYPE_GRID} aria-label={TYPE_GRID}
+                              onClick={() => handleChange(TYPE_GRID)}><GridView/></ToggleButton>
+              </ToggleButtonGroup>
+            </Grid>
           </Grid>
-        </Grid>
-        <Grid container spacing={3}>
-          {renderPortfolios}
-        </Grid>
-      </Container>
-    </div>
+          <Grid container spacing={3}>
+            {renderPortfolios}
+          </Grid>
+        </Container>
+      </div>
+    </Container>
   </section>;
 };
 export default Portfolio;

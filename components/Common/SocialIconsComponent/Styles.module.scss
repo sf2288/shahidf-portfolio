@@ -10,3 +10,9 @@
     padding: 15px;
   }
 }
+
+@media only screen and(max-width: 425px) {
+  .social {
+    justify-content: center;
+  }
+}

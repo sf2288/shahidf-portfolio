@@ -24,13 +24,12 @@ const FirstSection = () => {
     {/*<FadeInAnimation>*/}
     <Container maxWidth="md">
       <Grid container className={style.about}>
-        <Grid item md={8} sm={12}>
+        <Grid item md={8} sm={12} className={style.aboutContent}>
           <img src={MY_FULL_NAME_PHOTO}
                alt={MY_NAME}
                className={style.nameImage}
-               placeholder="blur"
                loading="lazy"
-               width={515}
+               width={514}
                height={103}/>
           <Typography variant="h5" className={style.subTitle} gutterBottom>
             A meticulous <span className={style.subText}>Front-End Developer</span> based in {COUNTRY}.
@@ -63,7 +62,6 @@ const FirstSection = () => {
           <img src={MY_PHOTO}
                alt={MY_NAME}
                className={style.avatarImage}
-               placeholder="blur"
                loading="lazy"
                height={150}
                width={150}/>

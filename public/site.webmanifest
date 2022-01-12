@@ -1,10 +1,10 @@
 {
     "name": "Shahid Farooqui",
-    "short_name": "SF",
+    "short_name": "Shahid F.",
     "description": "Shahid Farooqui | Freelance Front-End Developer | London | UK",
     "theme_color": "#fff",
     "background_color": "#fff",
-    "display": "standalone",
+    "display": "fullscreen",
     "scope": "/",
     "id": "/",
     "start_url": "/",
