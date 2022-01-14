@@ -16,10 +16,10 @@ export const LATITUDE = "21.1702";
 export const LONGITUDE = "72.8311";
 export const TWITTER_HANDLE = "@js_shahidf";
 
-export const META_TITLE = "Shahid Farooqui | Freelance Front-End Developer | London | UK";
+export const META_TITLE = "Shahid Farooqui | Freelance Front-End Developer | London | UK | India";
 export const META_DESCRIPTION = `Freelance Front-End Developer, Software Developer from SURAT, INDIA. Skilled in developing 
-Responsive web apps using modern frontend technologies like React.js, Next.js, Redux, Hooks, Bootstrap, Material-UI, Progressive Web App (PWA), HTML, CSS,
- SCSS, Javascript, Typescript, RESTful, Third-party API Integration, etc. and best practices`;
+Single Page Apps, Responsive web apps using modern frontend technologies like React.js, Next.js, Redux, Hooks, Bootstrap,
+ Material-UI, Progressive Web App (PWA), HTML, CSS, SCSS, Javascript, Typescript, RESTful and Third-party API Integration, etc. and best practices`;
 
 export const META_KEYWORD = `Freelance, Freelancer, Web development, Front-End Developer, Js developer, how to develop a website,
  web developer near me, frontend developer near me, I want to build a website, React js developer needed, e-commerce, fintech,
@@ -39,7 +39,7 @@ export const INITIAL_VALUE_BUDGET = 5000;
 export const MAX_BUDGET = 10000;
 
 export const WORK_HISTORY_DOT_COLOR = ["primary", "success", "warning", "secondary", "info", "grey", "error"];
-export const REGEX_ONLY_NUMBERS = /^[0-9+\b]+$/
+export const REGEX_ONLY_NUMBERS = /^[0-9+\b]+$/;
 
 export const WORK_HISTORY = [
   {
@@ -72,7 +72,7 @@ export const WORK_HISTORY = [
   }
 ].reverse();
 
-export const WHATS_APP_MSG = "Hi";
+export const CONTACT_MESSAGE = `Hi ${MY_NAME}! I would like to get in touch with you to inquiry about a project.`;
 
 export const MY_SOCIAL_PROFILES = [
   {
@@ -95,7 +95,7 @@ export const MY_SOCIAL_PROFILES = [
   },
   {
     title: "WhatsApp",
-    url: `https://wa.me/${PHONE_NUMBER_NON_PADDED}/?text=${WHATS_APP_MSG}`,
+    url: `https://wa.me/${PHONE_NUMBER_NON_PADDED}/?text=${CONTACT_MESSAGE}`,
     // url: `tel:${PHONE_NUMBER_NON_PADDED}`,
     src: `${IMAGES_BUCKET_URL}whatsapp.svg`,
     target: "_blank"

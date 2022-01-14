@@ -56,13 +56,6 @@ const Header = () => {
     <Container>
       <Grid container>
         <Grid item xs={12} className={style.container}>
-          {/*<span className={style.logo} onClick={() => handleChangeRoute("/")}>*/}
-          {/*<img src={MY_SHORT_NAME_PHOTO}
-                 alt={MY_NAME}
-                 loading="lazy"
-                 height={37}
-                 width={133}/>
-                 </span>*/}
           <Typography variant="h2" className={style.logo}
                       onClick={() => handleChangeRoute("/")}>{MY_SHORT_NAME}</Typography>
           <IconButton aria-label="hamburg"

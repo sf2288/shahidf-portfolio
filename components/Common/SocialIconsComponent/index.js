@@ -2,6 +2,7 @@ import React from "react";
 import style from "./Styles.module.scss";
 import { IconButton, Tooltip, Zoom } from "@mui/material";
 import { MY_SOCIAL_PROFILES } from "../../../utils/constants";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const SocialIconsComponent = ({ open = false }) => {
 
@@ -13,10 +14,10 @@ const SocialIconsComponent = ({ open = false }) => {
                       color="primary"
                       size="large"
                       className={style.socialIcon}>
-            <img src={d?.src}
-                 alt={d?.title}
-                 height={30}
-                 width={30}/>
+            <LazyLoadImage src={d?.src}
+                           alt={d?.title}
+                           height={30}
+                           width={30}/>
           </IconButton>
         </Tooltip>
       </a>;

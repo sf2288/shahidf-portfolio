@@ -16,6 +16,7 @@ import {
 } from "@mui/material";
 import { Clear, Email, LocationOn, Send, WhatsApp } from "@mui/icons-material";
 import {
+  CONTACT_MESSAGE,
   COUNTRY,
   EMAIL_ID,
   INITIAL_VALUE_BUDGET,
@@ -289,7 +290,7 @@ const Footer = () => {
                              <Clear/>
                            </IconButton>
                          </InputAdornment> : null}
-                       placeholder="Hi there! I would like to get in touch with you to inquiry about a project."/>
+                       placeholder={CONTACT_MESSAGE}/>
               </Grid>
               <Grid item sm={12} className={style.footerCTA}>
                 <div className={style.submitButtonContainer}>

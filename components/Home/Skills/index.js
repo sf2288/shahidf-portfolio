@@ -1,18 +1,13 @@
 import { Container, Grid, Typography } from "@mui/material";
 import style from "./Styles.module.scss";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Routes, SkillsList } from "../../../utils";
 import { TitlePattern } from "../../Common/TitlePattern";
 import { IMAGES_BUCKET_URL } from "../../../utils/constants";
+import FadeInAnimation from "../../Common/FadeInAnimation";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
-const Skills = ({ hasSkillsLoadedOnce, isSkillsSectionInView }) => {
-  const [skillsList, setSkillsList] = useState([]);
-
-  useEffect(() => {
-    if (isSkillsSectionInView) {
-      setSkillsList(SkillsList);
-    }
-  }, [isSkillsSectionInView]);
+const Skills = () => {
 
   return <section id={Routes[4].id} className={`${style.skillsSection} commonSecondarySection`}>
     <Container maxWidth="lg">
@@ -28,23 +23,22 @@ const Skills = ({ hasSkillsLoadedOnce, isSkillsSectionInView }) => {
       </Grid>
     </Container>
 
-    <Container maxWidth="lg"
-               className={`${style.skillsContainer} ${isSkillsSectionInView || hasSkillsLoadedOnce ? "visible" : "invisible"}`}>
+    <Container maxWidth="lg" className={style.skillsContainer}>
       <Grid container>
-        {skillsList.map((d) => {
+        {SkillsList.map((d) => {
           const url = `${IMAGES_BUCKET_URL}${d?.url}`;
           return <Grid item lg={3} sm={4} xs={6} className={style.skillsList} key={d?.label}>
-            <div className={style.skill}>
-              <img src={url}
-                   alt={d?.label}
-                   placeholder="blur"
-                   loading="lazy"
-                   height={70}
-                   width={80}/>
-              <Typography variant="div" component="h4">
-                {d?.label}
-              </Typography>
-            </div>
+            <FadeInAnimation>
+              <div className={style.skill}>
+                <LazyLoadImage src={url}
+                               alt={d?.label}
+                               height={70}
+                               width={80}/>
+                <Typography variant="div" component="h3" className={style.skillName}>
+                  {d?.label}
+                </Typography>
+              </div>
+            </FadeInAnimation>
           </Grid>;
         })}
       </Grid>

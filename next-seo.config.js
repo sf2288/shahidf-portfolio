@@ -1,4 +1,5 @@
 import {
+  IMAGES_BUCKET_URL,
   META_DESCRIPTION,
   META_KEYWORD,
   META_TITLE,
@@ -39,7 +40,7 @@ export default {
   additionalMetaTags: [
     {
       name: "viewport",
-      content: "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, user-scalable=0, viewport-fit=cover"
+      content: "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, user-scalable=0, viewport-fit=cover"
     },
     {
       name: "keyword",
@@ -62,6 +63,10 @@ export default {
     {
       rel: "apple-mobile-web-app-capable",
       href: "yes"
+    },
+    {
+      rel: "icon",
+      href: `${IMAGES_BUCKET_URL}favicon.ico`
     }
   ]
 };

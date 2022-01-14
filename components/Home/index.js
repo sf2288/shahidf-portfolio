@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import dynamic from "next/dynamic";
-import { useInView } from "react-intersection-observer";
 
 const FirstSection = dynamic(() => import("./FirstSection"));
 const Portfolio = dynamic(() => import("./Portfolio"));
@@ -10,14 +9,6 @@ const WorkHistory = dynamic(() => import("./WorkHistory"));
 const Skills = dynamic(() => import("./Skills"));
 
 const HomeComponent = () => {
-  const [skillsRef, isSkillsSectionInView] = useInView();
-  const [hasSkillsLoadedOnce, setHasSkillsLoadedOnce] = useState(false);
-
-  useEffect(() => {
-    if (isSkillsSectionInView) {
-      setHasSkillsLoadedOnce(isSkillsSectionInView);
-    }
-  }, [isSkillsSectionInView]);
 
   return <main>
     <FirstSection/>
@@ -30,10 +21,7 @@ const HomeComponent = () => {
 
     <WorkHistory/>
 
-    <div ref={skillsRef}>
-      <Skills isSkillsSectionInView={isSkillsSectionInView}
-              hasSkillsLoadedOnce={hasSkillsLoadedOnce}/>
-    </div>
+    <Skills/>
   </main>;
 };
 export default HomeComponent;

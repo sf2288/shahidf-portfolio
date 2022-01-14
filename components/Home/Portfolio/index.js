@@ -118,10 +118,11 @@ const Portfolio = () => {
     })}
   </>, []);
 
-  return <section id={Routes[1].id} className={`bgGray ${style.portfolioSection} commonSecondarySection`}>
+  return <section id={Routes[1].id} ref={portfolioRef}
+                  className={`bgGray ${style.portfolioSection} commonSecondarySection`}>
 
     <Container maxWidth="lg">
-      <Grid container ref={portfolioRef}>
+      <Grid container>
         <Grid item>
           <Typography variant="div" component="h1" className="title">
             <TitlePattern/> {Routes[1].title}

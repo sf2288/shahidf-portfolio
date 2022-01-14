@@ -5,6 +5,7 @@ import { useTheme } from "@mui/styles";
 import { Button, MobileStepper } from "@mui/material";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import { IMAGES_BUCKET_URL } from "../../../../utils/constants";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const SliderComponent = ({ index: i, data, view, TYPE_GRID }) => {
   const theme = useTheme();
@@ -36,12 +37,11 @@ const SliderComponent = ({ index: i, data, view, TYPE_GRID }) => {
       {data?.images && data?.images && data?.images.map((image, j) => {
         return <div key={`${i}+${j}`}
                     className={`${style.sliderImages} ${view === TYPE_GRID ? style.sliderImagesGrid : ""}`}>
-          <img src={`${IMAGES_BUCKET_URL}${image}`}
-               alt={image}
-               className={style.image}
-               loading="lazy"
-               height={650}
-               width={"100%"}/>
+          <LazyLoadImage src={`${IMAGES_BUCKET_URL}${image}`}
+                         alt={image}
+                         className={style.image}
+                         height={650}
+                         width={"100%"}/>
         </div>;
       })}
     </SwipeableViews>

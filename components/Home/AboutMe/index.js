@@ -69,7 +69,8 @@ const AboutMe = () => {
         </Grid>
         <Grid item md={5} xs={12} className={style.myImageContainer}>
           {isLoading ?
-            <CircularProgress size="2rem"/> : (isAboutMeSectionInView || hasLoadedOnce) ? <>{renderAnimation}</> : null}
+            <CircularProgress size="2rem" aria-label="aria-progress-loader"/> :
+            (isAboutMeSectionInView || hasLoadedOnce) && animationData ? <>{renderAnimation}</> : null}
         </Grid>
       </Grid>
     </Container>

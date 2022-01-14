@@ -7,6 +7,7 @@ import { COUNTRY, CV_URL, MY_NAME, MY_PHOTO } from "../../../utils/constants";
 import Button from "@mui/material/Button";
 import { ArrowDownward, Send } from "@mui/icons-material";
 import dynamic from "next/dynamic";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const SocialIconsComponent = dynamic(() => import("../../Common/SocialIconsComponent"));
 
@@ -21,7 +22,6 @@ const FirstSection = () => {
 
   return <section className={`commonSection ${style.firstSection}`}>
     {/*<span className={style.availability}> Available for new projects</span>*/}
-    {/*<FadeInAnimation>*/}
     <Container maxWidth="md">
       <Grid container className={style.about}>
         <Grid item md={8} sm={12} className={style.aboutContent}>
@@ -54,16 +54,14 @@ const FirstSection = () => {
           </a>
         </Grid>
         <Grid item md={4} sm={12} className={style.avatar}>
-          <img src={MY_PHOTO}
-               alt={MY_NAME}
-               className={style.avatarImage}
-               loading="lazy"
-               height={150}
-               width={150}/>
+          <LazyLoadImage src={MY_PHOTO}
+                         alt={MY_NAME}
+                         className={style.avatarImage}
+                         height={150}
+                         width={150}/>
         </Grid>
       </Grid>
     </Container>
-    {/*</FadeInAnimation>*/}
   </section>;
 };
 
