@@ -47,6 +47,14 @@ export default {
       content: META_KEYWORD
     },
     {
+      name: "image",
+      content: MY_PREVIEW_PHOTO
+    },
+    {
+      name: "author",
+      content: MY_NAME
+    },
+    {
       property: "og:locale",
       content: "en_US"
     }
