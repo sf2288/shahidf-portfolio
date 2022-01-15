@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { Container, Grid, IconButton } from "@mui/material";
+import { Button, Container, Grid, IconButton, Typography } from "@mui/material";
 import style from "./Styles.module.scss";
-import { Routes } from "../../utils";
-import { Menu } from "@mui/icons-material";
+import { HIRE_ME_ID, Routes } from "../../utils";
+import { Menu, MonetizationOn } from "@mui/icons-material";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { MY_SHORT_NAME } from "../../utils/constants";
-import Typography from "@mui/material/Typography";
 
 const Drawer = dynamic(() => import("./../Drawer"));
 
@@ -22,14 +21,6 @@ const Header = () => {
 
     setDrawerState(!drawerState);
   };
-
-  /*const handleScrollInto = (id) => {
-    const ele = document.getElementById(id);
-    if (ele) {
-      ele.scrollIntoView(true);
-    }
-    setSelectedSection(id);
-  };*/
 
   const handleChangeRoute = (route) => {
     if (route === "/") {
@@ -66,6 +57,9 @@ const Header = () => {
             <Menu/>
           </IconButton>
           {headerList()}
+          <Button variant="contained" className={style.btnHireMe} onClick={() => handleChangeRoute(HIRE_ME_ID?.route)}>
+            Hire Me! <MonetizationOn className={style.icon}/>
+          </Button>
         </Grid>
       </Grid>
     </Container>

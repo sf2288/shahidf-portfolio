@@ -5,7 +5,7 @@ import {
   META_TITLE,
   MY_DOMAIN,
   MY_NAME,
-  MY_PHOTO,
+  MY_PREVIEW_PHOTO,
   TWITTER_HANDLE
 } from "./utils/constants";
 
@@ -23,9 +23,9 @@ export default {
     type: "website",
     images: [
       {
-        url: MY_PHOTO,
-        width: 200,
-        height: 200,
+        url: MY_PREVIEW_PHOTO,
+        width: 500,
+        height: 525,
         alt: META_TITLE,
         type: "image/webp"
       }

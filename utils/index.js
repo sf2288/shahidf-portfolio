@@ -43,6 +43,12 @@ export const Routes = [
   }
 ];
 
+export const HIRE_ME_ID = {
+  title: "Hire Me",
+  route: "#hire-me",
+  id: "hire-me"
+};
+
 export const SkillsList = [
   {
     label: "React.js",
