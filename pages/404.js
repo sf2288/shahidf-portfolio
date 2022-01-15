@@ -11,9 +11,9 @@ export default function FourOhFour() {
   };
 
   return <div className="fourOhFour">
-    <img src={`${IMAGES_BUCKET_URL}404.svg`} alt="Payment Success" height={400} width={400}/>
+    <img src={`${IMAGES_BUCKET_URL}404.svg`} alt="404 | Page not found" height={300} width={400}/>
     <h1>Page Not Found</h1>
-    <p className="fs-16">The page you're looking for does not seem to exist.</p>
+    <p>Unfortunately the page you're looking for does not exist.</p>
     <Button variant="contained" color="primary" onClick={handleGoToHome}>
       Go to home
     </Button>

@@ -107,13 +107,27 @@ a {
 }
 
 .fourOhFour {
-  margin: 3rem;
+  margin: 3rem 1rem;
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
 
+  p {
+    font-size: 18px
+  }
+
   img, button {
     margin: auto;
+  }
+
+  button {
+    text-transform: inherit;
+    font-size: 20px;
+    border-radius: 50px;
+  }
+
+  img {
+    max-width: 100%;
   }
 }
