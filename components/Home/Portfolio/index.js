@@ -1,4 +1,4 @@
-import { ProjectsList, Routes } from "../../../utils";
+import { ProjectsList, Routes, sendGoogleAnalyticsEvent } from "../../../utils";
 import style from "./Styles.module.scss";
 import {
   Alert,
@@ -142,7 +142,10 @@ const Portfolio = () => {
             </ListItem>
             {projects.map((d) => {
               return <ListItem key={d?.id} disablePadding>
-                <ListItemButton component="a" onClick={() => handleScrollInto(d?.id)}>
+                <ListItemButton component="a" onClick={() => {
+                  handleScrollInto(d?.id);
+                  sendGoogleAnalyticsEvent("projects_menu_item_click", { "projects_menu_item_click": d?.project_name });
+                }}>
                   <ListItemText primary={d?.project_name} className={selectedProject === d?.id ? style.selected : ""}/>
                 </ListItemButton>
               </ListItem>;

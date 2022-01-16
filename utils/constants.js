@@ -1,5 +1,6 @@
 export const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 export const SEND_GRID_API_KEY = process.env.NEXT_PUBLIC_SEND_GRID_API_KEY;
+export const GOOGLE_ANALYTICS = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
 export const MY_DOMAIN = process.env.NEXT_PUBLIC_MY_DOMAIN;
 export const MY_NAME = "Shahid Farooqui";
 export const MY_SHORT_NAME = "Shahid F.";

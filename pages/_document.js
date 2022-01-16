@@ -2,7 +2,7 @@ import React from "react";
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
 import { ServerStyleSheets as MaterialUiServerStyleSheets } from "@mui/styles";
-import { IMAGES_BUCKET_URL, MY_PREVIEW_PHOTO } from "../utils/constants";
+import { GOOGLE_ANALYTICS, IMAGES_BUCKET_URL, MY_PREVIEW_PHOTO } from "../utils/constants";
 
 const googleFontsApiDomain = "https://fonts.googleapis.com";
 const googleMapsApiDomain = "https://maps.googleapis.com";
@@ -23,9 +23,18 @@ export default class MyDocument extends Document {
           <link rel="dns-prefetch" href={IMAGES_BUCKET_URL}/>
           <link rel="preconnect" href={googleMapsApiDomain}/>
           <link rel="dns-prefetch" href={googleMapsApiDomain}/>
+          <link rel="preconnect" href={googleAnalyticsDomain}/>
 
-          {/*<link rel="preconnect" href={googleAnalyticsDomain}/>*/}
-          {/*<link rel="dns-prefetch" href={googleAnalyticsDomain}/>*/}
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS}`}/>
+
+          <script dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window?.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GOOGLE_ANALYTICS}', {
+              page_path: window?.location?.href,
+            });`
+          }}/>
 
           {/*       <link rel="stylesheet preload prefetch"
                 href="/fonts/rza-regular.woff2"

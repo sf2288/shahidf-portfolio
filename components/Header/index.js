@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Container, Grid, IconButton, Typography } from "@mui/material";
 import style from "./Styles.module.scss";
-import { Routes } from "../../utils";
+import { Routes, sendGoogleAnalyticsEvent } from "../../utils";
 import { Menu, MonetizationOn } from "@mui/icons-material";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -32,11 +32,14 @@ const Header = () => {
     router.replace(route);
     if (drawerState) {
       setDrawerState(!drawerState);
+      sendGoogleAnalyticsEvent("drawer_menu_item_click", { "drawer_menu_item_click": route });
+    } else {
+      sendGoogleAnalyticsEvent("header_menu_item_click", { "header_menu_item_click": route });
     }
   };
 
   const headerList = () => <ul className={style.menu}>
-    {Routes.map((d) => <li key={d?.route} onClick={() => handleChangeRoute(d?.route)}>
+    {Routes.map(d => <li key={d?.route} onClick={() => handleChangeRoute(d?.route)}>
       <a href={d?.route} className={`/${d?.route}` === asPath ? style.selected : ""} rel="noopener noreferrer">
         {d?.title}
       </a>
@@ -47,18 +50,28 @@ const Header = () => {
     <Container>
       <Grid container>
         <Grid item xs={12} className={style.container}>
-          <Typography variant="h2" className={style.logo}
-                      onClick={() => handleChangeRoute("/")}>{MY_SHORT_NAME}</Typography>
+          <Typography variant="h2"
+                      className={style.logo}
+                      onClick={() => handleChangeRoute("/")}>
+            {MY_SHORT_NAME}
+          </Typography>
           <IconButton aria-label="hamburg"
                       color="primary"
                       size="large"
                       className={style.menuIcon}
-                      onClick={toggleDrawer}>
+                      onClick={(e) => {
+                        toggleDrawer(e);
+                        sendGoogleAnalyticsEvent("header_drawer_menu_click", { header_drawer_menu_click: "open" });
+                      }}>
             <Menu/>
           </IconButton>
           {headerList()}
-          <Button variant="contained" className={style.btnHireMe} href={MY_SOCIAL_PROFILES[0]?.url}
-                  target={MY_SOCIAL_PROFILES[0]?.target} rel="noopener noreferrer">
+          <Button variant="contained"
+                  className={style.btnHireMe}
+                  href={MY_SOCIAL_PROFILES[0]?.url}
+                  target={MY_SOCIAL_PROFILES[0]?.target}
+                  rel="noopener noreferrer"
+                  onClick={() => sendGoogleAnalyticsEvent("header_hire_me_on_upwork_click", { header_hire_me_on_upwork_click: MY_SOCIAL_PROFILES[0]?.url })}>
             Hire Me! <MonetizationOn className={style.icon}/>
           </Button>
         </Grid>

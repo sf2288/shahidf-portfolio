@@ -2,7 +2,7 @@ import { Container, Grid, Typography } from "@mui/material";
 import style from "./Styles.module.scss";
 // import FadeInAnimation from "../../Common/FadeInAnimation";
 import React from "react";
-import { Routes } from "../../../utils";
+import { Routes, sendGoogleAnalyticsEvent } from "../../../utils";
 import { COUNTRY, CV_URL, MY_NAME, MY_PHOTO } from "../../../utils/constants";
 import Button from "@mui/material/Button";
 import { ArrowDownward, Send } from "@mui/icons-material";
@@ -38,18 +38,25 @@ const FirstSection = () => {
 
           <div className={style.mainCTAs}>
             <Button variant="contained" className={style.btnGetInTouch}
-                    onClick={() => handleScrollInto(Routes[5].id)}>
+                    onClick={() => {
+                      handleScrollInto(Routes[5].id);
+                      sendGoogleAnalyticsEvent("hero_get_in_touch_click", { "hero_get_in_touch_click": Routes[5].id });
+                    }}>
               Get In Touch <Send className={style.icon} fontSize="large"/>
             </Button>
             <Button href={CV_URL}
                     target="_blank" rel="noopener noreferrer"
                     variant="outlined"
                     className={style.btnDownloadCv}
-                    download>
+                    download
+                    onClick={() => sendGoogleAnalyticsEvent("hero_download_cv_click", { "hero_download_cv_click": CV_URL })}>
               Download CV <ArrowDownward color="primary" className={style.icon} fontSize="large"/>
             </Button>
           </div>
-          <a onClick={() => handleScrollInto(Routes[1].id)}>
+          <a onClick={() => {
+            handleScrollInto(Routes[1].id);
+            sendGoogleAnalyticsEvent("arrow_downward_click", { "arrow_downward_click": Routes[1].id });
+          }}>
             <ArrowDownward className={style.scrollDownArrow} fontSize="large"/>
           </a>
         </Grid>

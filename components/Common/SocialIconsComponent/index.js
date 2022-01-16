@@ -3,6 +3,7 @@ import style from "./Styles.module.scss";
 import { IconButton, Tooltip, Typography, Zoom } from "@mui/material";
 import { MY_SOCIAL_PROFILES } from "../../../utils/constants";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { sendGoogleAnalyticsEvent } from "../../../utils";
 
 const SocialIconsComponent = ({ open = false, hideUpwork = false, hideContactMe = false }) => {
   const [socialProfiles, setSocialProfiles] = useState([]);
@@ -20,7 +21,11 @@ const SocialIconsComponent = ({ open = false, hideUpwork = false, hideContactMe 
     </Typography> : null}
     <div>
       {socialProfiles.map(d => {
-        return <a key={d?.title} href={d?.url} target={d?.target} rel="noopener noreferrer">
+        return <a key={d?.title}
+                  href={d?.url}
+                  target={d?.target}
+                  rel="noopener noreferrer"
+                  onClick={() => sendGoogleAnalyticsEvent("social_icon_click", { "social_icon_click": d?.name })}>
           <Tooltip open={open} TransitionComponent={Zoom} title={d?.title}>
             <IconButton aria-label={d?.title}
                         color="primary"

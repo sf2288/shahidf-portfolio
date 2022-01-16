@@ -1,4 +1,5 @@
 import React from "react";
+import * as ga from "../lib/ga";
 
 export const Routes = [
   {
@@ -252,3 +253,10 @@ Board Rentals" website.</p>
     project_url: "https://bit.ly/3q8BIqK"
   }
 ].filter(d => !d?.hidden);
+
+export const sendGoogleAnalyticsEvent = (action, params) => {
+  ga.event({
+    action,
+    params
+  });
+};

@@ -1,4 +1,4 @@
-import { Routes } from "../../utils";
+import { Routes, sendGoogleAnalyticsEvent } from "../../utils";
 import style from "./Styles.module.scss";
 import {
   Button,
@@ -129,6 +129,7 @@ const Footer = () => {
       handleEmailClear();
       handleResetBudget();
       handleMessageClear();
+      sendGoogleAnalyticsEvent("footer_contact_send_message", { "footer_contact_send_message": email });
     });
   };
 
@@ -167,7 +168,8 @@ const Footer = () => {
         </Grid>
         <Grid item md={4} sm={12} className={style.contactInfo}>
           <div className={style.icon}>
-            <a href={MY_SOCIAL_PROFILES[3].url} target={MY_SOCIAL_PROFILES[3].target} rel="noopener noreferrer">
+            <a href={MY_SOCIAL_PROFILES[3].url} target={MY_SOCIAL_PROFILES[3].target} rel="noopener noreferrer"
+               onClick={() => sendGoogleAnalyticsEvent("footer_contact_phone_icon_click", { "footer_contact_phone_icon_click": true })}>
               <IconButton aria-label="Phone"
                           color="primary"
                           size="large"
@@ -177,7 +179,8 @@ const Footer = () => {
             </a>
           </div>
           <div className={style.detail}>
-            <a href={MY_SOCIAL_PROFILES[3].url} target={MY_SOCIAL_PROFILES[3].target} rel="noopener noreferrer">
+            <a href={MY_SOCIAL_PROFILES[3].url} target={MY_SOCIAL_PROFILES[3].target} rel="noopener noreferrer"
+               onClick={() => sendGoogleAnalyticsEvent("footer_contact_phone_click", { "footer_contact_phone_click": true })}>
               <Typography variant="h6" component="div">
                 Phone
               </Typography>
@@ -189,7 +192,8 @@ const Footer = () => {
         </Grid>
         <Grid item md={4} sm={12} className={style.contactInfo}>
           <div className={style.icon}>
-            <a href={`mailto:${EMAIL_ID}`} rel="noopener noreferrer">
+            <a href={`mailto:${EMAIL_ID}`} rel="noopener noreferrer"
+               onClick={() => sendGoogleAnalyticsEvent("footer_contact_email_icon_click", { "footer_contact_email_icon_click": true })}>
               <IconButton aria-label="Email"
                           color="primary"
                           size="large"
@@ -199,7 +203,8 @@ const Footer = () => {
             </a>
           </div>
           <div className={style.detail}>
-            <a href={`mailto:${EMAIL_ID}`} rel="noopener noreferrer">
+            <a href={`mailto:${EMAIL_ID}`} rel="noopener noreferrer"
+               onClick={() => sendGoogleAnalyticsEvent("footer_contact_email_click", { "footer_contact_email_click": true })}>
               <Typography variant="h6" component="div">
                 Email
               </Typography>

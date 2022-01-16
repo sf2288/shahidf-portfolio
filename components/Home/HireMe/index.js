@@ -4,6 +4,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 import { MY_SOCIAL_PROFILES } from "../../../utils/constants";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { sendGoogleAnalyticsEvent } from "../../../utils";
 
 const SocialIconsComponent = dynamic(() => import("../../Common/SocialIconsComponent"));
 
@@ -18,8 +19,12 @@ const HireMe = () => {
               <Typography variant="h4" gutterBottom className={style.projectName}>
                 Let's build something great together!
               </Typography>
-              <Button className={style.hireMeButton} href={MY_SOCIAL_PROFILES[0]?.url}
-                      target={MY_SOCIAL_PROFILES[0]?.target} rel="noopener noreferrer">
+              <Button className={style.hireMeButton}
+                      href={MY_SOCIAL_PROFILES[0]?.url}
+                      target={MY_SOCIAL_PROFILES[0]?.target}
+                      rel="noopener noreferrer"
+                      onClick={() => sendGoogleAnalyticsEvent("section_hire_me_on_upwork_click",
+                        { "section_hire_me_on_upwork_click": MY_SOCIAL_PROFILES[0]?.url })}>
                 Hire Me On <LazyLoadImage src={MY_SOCIAL_PROFILES[0]?.src}
                                           alt={MY_SOCIAL_PROFILES[0]?.title}
                                           className={style.icon}
