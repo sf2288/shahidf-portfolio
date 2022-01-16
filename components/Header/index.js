@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Button, Container, Grid, IconButton, Typography } from "@mui/material";
 import style from "./Styles.module.scss";
-import { HIRE_ME_ID, Routes } from "../../utils";
+import { Routes } from "../../utils";
 import { Menu, MonetizationOn } from "@mui/icons-material";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { MY_SHORT_NAME } from "../../utils/constants";
+import { MY_SHORT_NAME, MY_SOCIAL_PROFILES } from "../../utils/constants";
 
 const Drawer = dynamic(() => import("./../Drawer"));
 
@@ -57,7 +57,8 @@ const Header = () => {
             <Menu/>
           </IconButton>
           {headerList()}
-          <Button variant="contained" className={style.btnHireMe} onClick={() => handleChangeRoute(HIRE_ME_ID?.route)}>
+          <Button variant="contained" className={style.btnHireMe} href={MY_SOCIAL_PROFILES[0]?.url}
+                  target={MY_SOCIAL_PROFILES[0]?.target} rel="noopener noreferrer">
             Hire Me! <MonetizationOn className={style.icon}/>
           </Button>
         </Grid>

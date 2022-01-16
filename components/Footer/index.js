@@ -317,8 +317,7 @@ const Footer = () => {
     <Container maxWidth="lg">
       <Typography variant="h6" className={style.subFooter}>
         Made with<span className={style.love}>&nbsp;❤&nbsp;</span>by <b>{MY_NAME}</b>
-        &nbsp;-&nbsp;
-        &copy; Copyright {new Date().getFullYear()}
+        &nbsp;-&nbsp;&copy; Copyright {new Date().getFullYear()}
       </Typography>
     </Container>
   </section>;

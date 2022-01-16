@@ -19,15 +19,6 @@
       }
     }
 
-    .hireMeText {
-      font-size: 20px;
-
-      .or {
-        margin-top: 16px;
-        margin-bottom: 16px
-      }
-    }
-
     .hireMeButton {
       width: 220px;
       font-size: 20px;
@@ -35,6 +26,10 @@
       border-radius: 50px;
       background: $colorWhite;
       color: $colorBlue;
+
+      .icon {
+        margin-left: 1rem;
+      }
     }
 
     .hireMeSocialButton {

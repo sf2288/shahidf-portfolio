@@ -34,7 +34,7 @@ const FirstSection = () => {
             Specialized in creating Responsive, Minimal and Interactive user interfaces.
           </Typography>
 
-          <SocialIconsComponent/>
+          <SocialIconsComponent hideContactMe={true}/>
 
           <div className={style.mainCTAs}>
             <Button variant="contained" className={style.btnGetInTouch}

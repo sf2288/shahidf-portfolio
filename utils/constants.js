@@ -80,25 +80,29 @@ export const MY_SOCIAL_PROFILES = [
     title: "Upwork",
     url: "https://www.upwork.com/freelancers/~01cb04cb0ac71c8b6f/",
     src: `${IMAGES_BUCKET_URL}upwork.svg`,
-    target: "_blank"
+    target: "_blank",
+    name: "upwork"
   },
   {
     title: "Linkedin",
     url: "https://in.linkedin.com/in/shahid-farooqui/",
     src: `${IMAGES_BUCKET_URL}linkedin.svg`,
-    target: "_blank"
+    target: "_blank",
+    name: "linkedin"
   },
   {
     title: "Github",
     url: "https://github.com/sf2288/",
     src: `${IMAGES_BUCKET_URL}github.svg`,
-    target: "_blank"
+    target: "_blank",
+    name: "github"
   },
   {
     title: "WhatsApp",
     url: `https://wa.me/${PHONE_NUMBER_NON_PADDED}/?text=${CONTACT_MESSAGE}`,
     // url: `tel:${PHONE_NUMBER_NON_PADDED}`,
     src: `${IMAGES_BUCKET_URL}whatsapp.svg`,
-    target: "_blank"
+    target: "_blank",
+    name: "whatsapp"
   }
 ];

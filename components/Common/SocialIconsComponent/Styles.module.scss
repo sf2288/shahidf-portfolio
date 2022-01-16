@@ -3,11 +3,20 @@
 .social {
   margin: 2rem 0;
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  flex-direction: column;
 
-  .socialIcon {
-    padding: 15px;
+  .hireMeText {
+    font-size: 20px;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .socialIcon {
+      padding: 15px;
+    }
   }
 }
 
