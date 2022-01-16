@@ -10,9 +10,7 @@ import { sendGoogleAnalyticsEvent } from "../utils";
 const MyApp = ({ Component, pageProps }) => {
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      sendGoogleAnalyticsEvent("main_page_load", { "main_page_load": window?.location?.href });
-    }
+    sendGoogleAnalyticsEvent("main_page_load", { "main_page_load": window?.location?.href });
   }, []);
 
   return (
