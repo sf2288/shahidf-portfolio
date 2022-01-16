@@ -24,8 +24,8 @@ export default {
     images: [
       {
         url: MY_PREVIEW_PHOTO,
-        width: 1200,
-        height: 627,
+        width: 500,
+        height: 525,
         alt: META_TITLE,
         type: "image/webp"
       }

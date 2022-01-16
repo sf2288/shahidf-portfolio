@@ -2,7 +2,7 @@ import React from "react";
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
 import { ServerStyleSheets as MaterialUiServerStyleSheets } from "@mui/styles";
-import { IMAGES_BUCKET_URL } from "../utils/constants";
+import { IMAGES_BUCKET_URL, MY_PREVIEW_PHOTO } from "../utils/constants";
 
 const googleFontsApiDomain = "https://fonts.googleapis.com";
 const googleMapsApiDomain = "https://maps.googleapis.com";
@@ -16,6 +16,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <meta name="image" property="og:image" content={MY_PREVIEW_PHOTO}/>
           <link rel="preconnect" href={googleFontsApiDomain}/>
           <link rel="dns-prefetch" href={googleFontsApiDomain}/>
           <link rel="preconnect" href={IMAGES_BUCKET_URL}/>
