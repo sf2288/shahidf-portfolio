@@ -1,6 +1,6 @@
 import { Container, Grid, Typography } from "@mui/material";
 import style from "./Styles.module.scss";
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Routes } from "../../../utils";
 import { TitlePattern } from "../../Common/TitlePattern";
 import Timeline from "@mui/lab/Timeline";
@@ -9,14 +9,23 @@ import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
-import { WORK_HISTORY, WORK_HISTORY_DOT_COLOR } from "../../../utils/constants";
+import { WORK_HISTORY_DOT_COLOR } from "../../../utils/constants";
 import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
+import { useInView } from "react-intersection-observer";
 import FadeInAnimation from "../../Common/FadeInAnimation";
 
-const WorkHistory = () => {
+const WorkHistory = ({ workHistory = [] }) => {
+  const [workHistoryRef, isWorkHistoryInView] = useInView();
+  const [hasLoadedOnce, setHasWorkHistoryLoadedOnce] = useState(false);
+
+  useEffect(() => {
+    if (isWorkHistoryInView && !hasLoadedOnce) {
+      setHasWorkHistoryLoadedOnce(isWorkHistoryInView);
+    }
+  }, [isWorkHistoryInView]);
 
   const renderTimeline = useMemo(() => <Timeline position="alternate">
-    {WORK_HISTORY.map((d, index) => {
+    {workHistory.map(d => {
       const random = Math.floor(Math.random() * WORK_HISTORY_DOT_COLOR.length);
       return <TimelineItem key={d?.id} className={style.timeLineItemRoot}>
         <TimelineOppositeContent
@@ -42,9 +51,10 @@ const WorkHistory = () => {
         </TimelineContent>
       </TimelineItem>;
     })}
-  </Timeline>, []);
+  </Timeline>, [isWorkHistoryInView]);
 
-  return <section id={Routes[3].id} className={`bgGray ${style.workHistorySection} commonSecondarySection`}>
+  return <section id={Routes[3].id} className={`bgGray ${style.workHistorySection} commonSecondarySection`}
+                  ref={workHistoryRef}>
     <Container maxWidth="lg">
       <Grid container>
         <Grid item>

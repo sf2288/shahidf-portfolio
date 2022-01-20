@@ -22,3 +22,18 @@
     }
   }
 }
+
+@media only screen and(max-width: 425px) {
+  .skillsSection {
+    .skillsContainer {
+      .skillsList {
+        .skill {
+          img {
+            height: 50px;
+            width: 50px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Container, Grid, IconButton, Typography } from "@mui/material";
+import { Button, Container, Fab, Grid, Typography } from "@mui/material";
 import style from "./Styles.module.scss";
 import { Routes, sendGoogleAnalyticsEvent } from "../../utils";
 import { Menu, MonetizationOn } from "@mui/icons-material";
@@ -55,16 +55,6 @@ const Header = () => {
                       onClick={() => handleChangeRoute("/")}>
             {MY_SHORT_NAME}
           </Typography>
-          <IconButton aria-label="hamburg"
-                      color="primary"
-                      size="large"
-                      className={style.menuIcon}
-                      onClick={(e) => {
-                        toggleDrawer(e);
-                        sendGoogleAnalyticsEvent("header_drawer_menu_click", { header_drawer_menu_click: "open" });
-                      }}>
-            <Menu/>
-          </IconButton>
           {headerList()}
           <Button variant="contained"
                   className={style.btnHireMe}
@@ -78,6 +68,13 @@ const Header = () => {
       </Grid>
     </Container>
 
+    <Fab color="primary" size="small" className={style.menuIcon} aria-label="hamburg"
+         onClick={(e) => {
+           toggleDrawer(e);
+           sendGoogleAnalyticsEvent("header_drawer_menu_click", { header_drawer_menu_click: "open" });
+         }}>
+      <Menu/>
+    </Fab>
     <div className={style.swipeableDrawerContainer}>
       <Drawer anchor="bottom"
               asPath={asPath}

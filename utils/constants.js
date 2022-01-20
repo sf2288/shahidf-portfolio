@@ -4,6 +4,7 @@ export const GOOGLE_ANALYTICS = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
 export const MY_DOMAIN = process.env.NEXT_PUBLIC_MY_DOMAIN;
 export const MY_NAME = "Shahid Farooqui";
 export const MY_SHORT_NAME = "Shahid F.";
+export const CV_URL = process.env.NEXT_PUBLIC_CV_URL;
 export const IMAGES_BUCKET_URL = "https://shahid-portfolio-bucket.s3.ap-south-1.amazonaws.com/";
 export const MY_PHOTO = `${IMAGES_BUCKET_URL}shahid-farooqui.webp`;
 export const MY_PREVIEW_PHOTO = `${IMAGES_BUCKET_URL}sf-preview.jpg`;
@@ -32,8 +33,6 @@ export const META_KEYWORD = `Freelance, Freelancer, Web development, Front-End D
  Wireframe/mockups to Responsive page, Contractor, Full time, Part time, Full Stack, London, United Kingdom, Remote,
   Work From Home(WFH), Europe, Germany, Amsterdam, Netherlands, Freelancers, Freelance Front-End Developer in london, uk,
    india, Web Developer in london, freelance web developer london, uk, india, United States, US, Front-End Web Developer in US, anywhere, worldwide, ${MY_DOMAIN}`;
-
-export const CV_URL = "https://drive.google.com/file/d/1s00iR1TnXn_oS4lKyAqe5a063kQxMyZ-/view";
 
 export const BUDGET_LIST = ["Less than $1500", "$1500k - $3k", "$3k - $5k", "$5k - $10k", "More than $10k"];
 export const MIN_BUDGET = 1500;

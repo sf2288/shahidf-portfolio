@@ -29,9 +29,10 @@ import {
   PHONE_NUMBER,
   REGEX_ONLY_NUMBERS
 } from "../../utils/constants";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import { TitlePattern } from "../Common/TitlePattern";
+import { useInView } from "react-intersection-observer";
 
 const MapComponent = dynamic(() => import("./../Common/MapComponent"));
 
@@ -48,6 +49,14 @@ const Footer = () => {
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const [isLoading, setIsLoading] = useState(false);
   const [emailMessage, setEmailMessage] = useState("");
+  const [contactRef, isContactInView] = useInView();
+  const [hasLoadedOnce, setHasContactLoadedOnce] = useState(false);
+
+  useEffect(() => {
+    if (isContactInView && !hasLoadedOnce) {
+      setHasContactLoadedOnce(isContactInView);
+    }
+  }, [isContactInView]);
 
   const handleNameChange = e => {
     setName(e?.target?.value);
@@ -88,15 +97,14 @@ const Footer = () => {
     setBudget([MIN_BUDGET, INITIAL_VALUE_BUDGET]);
   };
 
-  const renderMap = useMemo(() => <MapComponent zoom={14}
-                                                visible={true}
-                                                containerStyle={fullScreen ? { minHeight: "400px !important" } : {}}
-                                                coordinates={{
-                                                  lat: LATITUDE,
-                                                  lng: LONGITUDE
-                                                }}
-                                                address={COUNTRY}/>, []);
-
+  const renderMap = useMemo(() => (isContactInView || hasLoadedOnce) && <MapComponent zoom={14}
+                                                                                      visible={true}
+                                                                                      containerStyle={fullScreen ? { minHeight: "400px !important" } : {}}
+                                                                                      coordinates={{
+                                                                                        lat: LATITUDE,
+                                                                                        lng: LONGITUDE
+                                                                                      }}
+                                                                                      address={COUNTRY}/>, [isContactInView]);
 
   const handleBudgetSelection = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {
@@ -133,7 +141,7 @@ const Footer = () => {
     });
   };
 
-  return <section id={Routes[5].id} className={`bgGray ${style.contacts} commonSecondarySection`}>
+  return <section id={Routes[5].id} className={`bgGray ${style.contacts} commonSecondarySection`} ref={contactRef}>
     <Container maxWidth="lg">
       <Grid container>
         <Grid item>

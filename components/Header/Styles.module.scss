@@ -5,9 +5,7 @@
   position: sticky;
   top: 0;
   height: 60px;
-  //transition: all .3s ease;
   z-index: 1100;
-  //box-shadow: 0 15px 60px 0 rgb(0 0 0 / 5%);
   box-shadow: 0 10px 30px 0 rgb(0 0 0 / 3%);
   width: 100%;
   background-color: $colorWhite;
@@ -54,53 +52,22 @@
       }
     }
 
-    .menuIcon {
-      display: none;
-    }
-
     .btnHireMe {
       text-transform: inherit;
       border-radius: 50px;
       font-size: 17px;
-      background-color: $colorGreen;
-
-      /* &:after {
-         content: '';
-         width: 30px;
-         height: 30px;
-         border-radius: 100%;
-         border: 6px solid $colorBlue;
-         position: absolute;
-         z-index: -1;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
-         animation: ring 1.5s infinite;
-       }*/
+      background-color: $colorGreen !important;
 
       .icon {
         margin-left: .5rem;
       }
     }
   }
-}
 
-@keyframes ring {
-  0% {
-    width: 30px;
-    height: 30px;
-    opacity: 1;
-  }
-  100% {
-    width: 300px;
-    height: 300px;
-    opacity: 0;
+  .menuIcon {
+    display: none;
   }
 }
-
-/*.shadow {
-  box-shadow: 0 15px 60px 0 rgb(0 0 0 / 5%);
-}*/
 
 .drawer {
   border-top-left-radius: 20px;
@@ -125,14 +92,19 @@
         display: none;
       }
 
-      .menuIcon {
-        display: flex;
-      }
-
       .btnHireMe {
         order: -1;
       }
     }
+  }
+
+  .menuIcon {
+    display: flex;
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    padding: 1.5rem !important;
+    z-index: 1000;
   }
 }
 
@@ -163,10 +135,6 @@
         display: none;
       }
 
-      .menuIcon {
-        display: flex;
-      }
-
       .btnHireMe {
         order: -1;
         font-size: 12px;
@@ -175,6 +143,15 @@
           display: none
         }
       }
+    }
+
+    .menuIcon {
+      display: flex;
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      padding: 1.5rem !important;
+      z-index: 1000;
     }
   }
 }

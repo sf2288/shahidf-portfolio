@@ -1,9 +1,8 @@
 import { Container, Grid, Typography } from "@mui/material";
 import style from "./Styles.module.scss";
-// import FadeInAnimation from "../../Common/FadeInAnimation";
 import React from "react";
 import { Routes, sendGoogleAnalyticsEvent } from "../../../utils";
-import { COUNTRY, CV_URL, MY_NAME, MY_PHOTO } from "../../../utils/constants";
+import { COUNTRY, CV_URL, MY_NAME } from "../../../utils/constants";
 import Button from "@mui/material/Button";
 import { ArrowDownward, Send } from "@mui/icons-material";
 import dynamic from "next/dynamic";
@@ -11,7 +10,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const SocialIconsComponent = dynamic(() => import("../../Common/SocialIconsComponent"));
 
-const FirstSection = () => {
+const FirstSection = ({ MY_PHOTO }) => {
 
   const handleScrollInto = (id) => {
     const ele = document.getElementById(id);
@@ -21,7 +20,6 @@ const FirstSection = () => {
   };
 
   return <section className={`commonSection ${style.firstSection}`}>
-    {/*<span className={style.availability}> Available for new projects</span>*/}
     <Container maxWidth="md">
       <Grid container className={style.about}>
         <Grid item md={8} sm={12} className={style.aboutContent}>

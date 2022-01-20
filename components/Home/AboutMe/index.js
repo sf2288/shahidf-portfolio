@@ -14,10 +14,11 @@ const AboutMe = () => {
   const [animationData, setAnimationData] = useState(null);
   const [aboutMeRef, isAboutMeSectionInView] = useInView();
   const [hasLoadedOnce, setHasAboutMeLoadedOnce] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (isAboutMeSectionInView) {
+    if (isAboutMeSectionInView && !hasLoadedOnce) {
+      setIsLoading(isAboutMeSectionInView);
       setHasAboutMeLoadedOnce(isAboutMeSectionInView);
       (async function() {
         const animationJson = (await import("../../../public/lotties")).default;

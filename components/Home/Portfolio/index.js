@@ -1,4 +1,4 @@
-import { ProjectsList, Routes, sendGoogleAnalyticsEvent } from "../../../utils";
+import { Routes, sendGoogleAnalyticsEvent } from "../../../utils";
 import style from "./Styles.module.scss";
 import {
   Alert,
@@ -47,16 +47,15 @@ const FadeInWhenVisible = ({ children }) => {
   </motion.div>;
 };
 
-const Portfolio = () => {
+const Portfolio = ({ projects = [] }) => {
   const [portfolioRef, isPortfolioSectionInView] = useInView();
   const [hasLoadedOnce, setHasPortfolioLoadedOnce] = useState(false);
 
   const [view, setView] = useState(TYPE_LIST);
-  const [projects] = useState(ProjectsList);
   const [selectedProject, setSelectedProject] = useState();
 
   useEffect(() => {
-    if (isPortfolioSectionInView) {
+    if (isPortfolioSectionInView && !hasLoadedOnce) {
       setHasPortfolioLoadedOnce(isPortfolioSectionInView);
     }
   }, [isPortfolioSectionInView]);
@@ -74,49 +73,47 @@ const Portfolio = () => {
     }
   };
 
-  const renderPortfolios = useMemo(() => <>
-    {projects.map((d, i) => {
-      return <Grid key={i} id={d?.id} item sm={10} xs={12} className={style.grid}>
-        <FadeInWhenVisible>
-          <div className={style.portfolioCard}>
-            {d?.images && d.images.length ?
-              <div className={style.projectImage}>
-                <SliderComponent index={i} data={d} view={view} TYPE_GRID={TYPE_GRID}/>
-              </div> : null}
-            <div className={style.projectInfo}>
-              <div className={style.title}>
-                {d?.project_url ? <a href={d?.project_url} target="_blank" rel="noopener noreferrer">
-                  <Typography variant="h4" gutterBottom className={style.projectName}>
-                    {d?.project_name}
-                  </Typography>
-                </a> : <Typography variant="h4" gutterBottom>
+  const renderPortfolios = useMemo(() => projects.map((d, i) => {
+    return <Grid key={i} id={d?.id} item sm={10} xs={12} className={style.grid}>
+      <FadeInWhenVisible>
+        <div className={style.portfolioCard}>
+          {d?.images && d.images.length ?
+            <div className={style.projectImage}>
+              <SliderComponent index={i} data={d} view={view} TYPE_GRID={TYPE_GRID}/>
+            </div> : null}
+          <div className={style.projectInfo}>
+            <div className={style.title}>
+              {d?.project_url ? <a href={d?.project_url} target="_blank" rel="noopener noreferrer">
+                <Typography variant="h4" gutterBottom className={style.projectName}>
                   {d?.project_name}
-                </Typography>}
-                <Chip label={d?.type} color="primary" size="small" variant="outlined"/>
-              </div>
+                </Typography>
+              </a> : <Typography variant="h4" gutterBottom>
+                {d?.project_name}
+              </Typography>}
+              <Chip label={d?.type} color="primary" size="small" variant="outlined"/>
+            </div>
 
-              {d?.note ?
-                <Alert severity="warning" icon={<InfoOutlined/>} className={style.alert}>{d?.note}</Alert> : null}
+            {d?.note ?
+              <Alert severity="warning" icon={<InfoOutlined/>} className={style.alert}>{d?.note}</Alert> : null}
 
-              <div className={style.descriptionSection}>
-                {d?.description ? <>
-                  <Typography variant="div" component="h3">Description:</Typography>
+            <div className={style.descriptionSection}>
+              {d?.description ? <>
+                <Typography variant="div" component="h3">Description:</Typography>
 
-                  <Typography paragraph>
-                    <div dangerouslySetInnerHTML={{ __html: d?.description }}/>
-                  </Typography>
-                </> : null}
-                <div>
-                  {d?.tags && d?.tags.length ? d?.tags.map(d => <Chip key={d} label={d}
-                                                                      className={style.tags}/>) : null}
-                </div>
+                <Typography paragraph>
+                  <div dangerouslySetInnerHTML={{ __html: d?.description }}/>
+                </Typography>
+              </> : null}
+              <div>
+                {d?.tags && d?.tags.length ? d?.tags.map(d => <Chip key={d} label={d}
+                                                                    className={style.tags}/>) : null}
               </div>
             </div>
           </div>
-        </FadeInWhenVisible>
-      </Grid>;
-    })}
-  </>, []);
+        </div>
+      </FadeInWhenVisible>
+    </Grid>;
+  }), []);
 
   return <section id={Routes[1].id} ref={portfolioRef}
                   className={`bgGray ${style.portfolioSection} commonSecondarySection`}>
@@ -133,6 +130,7 @@ const Portfolio = () => {
         </Grid>
       </Grid>
       <div className={`${style.projects} ${isPortfolioSectionInView || hasLoadedOnce ? "visible" : "invisible"}`}>
+
         <nav className={style.nav}>
           <List>
             <ListItem disablePadding>
@@ -146,7 +144,8 @@ const Portfolio = () => {
                   handleScrollInto(d?.id);
                   sendGoogleAnalyticsEvent("projects_menu_item_click", { "projects_menu_item_click": d?.project_name });
                 }}>
-                  <ListItemText primary={d?.project_name} className={selectedProject === d?.id ? style.selected : ""}/>
+                  <ListItemText primary={d?.project_name}
+                                className={selectedProject === d?.id ? style.selected : ""}/>
                 </ListItemButton>
               </ListItem>;
             })}

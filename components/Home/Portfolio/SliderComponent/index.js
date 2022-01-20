@@ -35,8 +35,7 @@ const SliderComponent = ({ index: i, data, view, TYPE_GRID }) => {
                     onChangeIndex={handleStepChange}
                     enableMouseEvents>
       {data?.images && data?.images && data?.images.map((image, j) => {
-        return <div key={`${i}+${j}`}
-                    className={`${style.sliderImages} ${view === TYPE_GRID ? style.sliderImagesGrid : ""}`}>
+        return <div key={`${i}+${j}`} className={style.sliderImages}>
           <LazyLoadImage src={`${IMAGES_BUCKET_URL}${image}`}
                          alt={image}
                          className={style.image}

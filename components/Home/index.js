@@ -8,20 +8,20 @@ const AboutMe = dynamic(() => import("./AboutMe"));
 const WorkHistory = dynamic(() => import("./WorkHistory"));
 const Skills = dynamic(() => import("./Skills"));
 
-const HomeComponent = () => {
+const HomeComponent = ({ MY_PHOTO, skills, projects, workHistory }) => {
 
   return <main>
-    <FirstSection/>
+    <FirstSection MY_PHOTO={MY_PHOTO}/>
 
-    <Portfolio/>
+    <Portfolio projects={projects}/>
 
     <HireMe/>
 
     <AboutMe/>
 
-    <WorkHistory/>
+    <WorkHistory workHistory={workHistory}/>
 
-    <Skills/>
+    <Skills skills={skills}/>
   </main>;
 };
 export default HomeComponent;

@@ -16,28 +16,6 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <>
       <DefaultSeo {...SEO} />
-      {/*<Head>
-        <meta name="description" content={description}/>
-        <title>{title}</title>
-        <meta property="og:title" content={title} key="ogtitle"/>
-        <meta name="author" content={MY_NAME}/>
-        <meta name="keywords" content={description}/>
-        <meta property="og:description" content={description} key="ogdesc"/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:url" content={currentURL} key="ogurl"/>
-        <meta property="og:image" content={image} key="ogimage"/>
-        <meta property="og:site_name" content={MY_NAME} key="ogsitename"/>
-        <meta property="og:image:width" content="200"/>
-        <meta property="og:image:width" content="200"/>
-
-        <meta name="twitter:card" content="summary" key="twcard"/>
-        <meta name="twitter:site" content={twitterHandle}/>
-        <meta property="twitter:title" content={title}/>
-        <meta name="twitter:creator" content={twitterHandle} key="twhandle"/>
-        <meta property="twitter:description" content={description} key="ogdesc"/>
-        <meta property="twitter:image" content={image} key="ogimage"/>
-        <meta name="twitter:image:src" content={image}/>
-      </Head>*/}
       <ThemeProvider theme={theme}>
         <Layout>
           <Component {...pageProps} />

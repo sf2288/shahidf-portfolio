@@ -1,15 +1,39 @@
 import { Container, Grid, Typography } from "@mui/material";
 import style from "./Styles.module.scss";
-import React from "react";
-import { Routes, SkillsList } from "../../../utils";
+import React, { useEffect, useMemo, useState } from "react";
+import { Routes } from "../../../utils";
 import { TitlePattern } from "../../Common/TitlePattern";
 import { IMAGES_BUCKET_URL } from "../../../utils/constants";
 import FadeInAnimation from "../../Common/FadeInAnimation";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useInView } from "react-intersection-observer";
 
-const Skills = () => {
+const Skills = ({ skills = [] }) => {
+  const [skillsRef, isSkillsInView] = useInView();
+  const [hasLoadedOnce, setHasSkillsLoadedOnce] = useState(false);
 
-  return <section id={Routes[4].id} className={`${style.skillsSection} commonSecondarySection`}>
+  useEffect(() => {
+    if (isSkillsInView && !hasLoadedOnce) {
+      setHasSkillsLoadedOnce(isSkillsInView);
+    }
+  }, [isSkillsInView]);
+
+  const renderSkills = useMemo(() => skills.map((d) => {
+    const url = `${IMAGES_BUCKET_URL}${d?.url}`;
+    return <Grid item lg={3} sm={4} xs={6} className={style.skillsList} key={d?.label}>
+      <div className={style.skill}>
+        <LazyLoadImage src={url}
+                       alt={d?.label}
+                       height={70}
+                       width={80}/>
+        <Typography variant="div" component="h3" className={style.skillName}>
+          {d?.label}
+        </Typography>
+      </div>
+    </Grid>;
+  }), [isSkillsInView]);
+
+  return <section id={Routes[4].id} className={`${style.skillsSection} commonSecondarySection`} ref={skillsRef}>
     <Container maxWidth="lg">
       <Grid container>
         <Grid item>
@@ -23,26 +47,13 @@ const Skills = () => {
       </Grid>
     </Container>
 
-    <Container maxWidth="lg" className={style.skillsContainer}>
-      <Grid container>
-        {SkillsList.map((d) => {
-          const url = `${IMAGES_BUCKET_URL}${d?.url}`;
-          return <Grid item lg={3} sm={4} xs={6} className={style.skillsList} key={d?.label}>
-            <FadeInAnimation>
-              <div className={style.skill}>
-                <LazyLoadImage src={url}
-                               alt={d?.label}
-                               height={70}
-                               width={80}/>
-                <Typography variant="div" component="h3" className={style.skillName}>
-                  {d?.label}
-                </Typography>
-              </div>
-            </FadeInAnimation>
-          </Grid>;
-        })}
-      </Grid>
-    </Container>
+    <FadeInAnimation>
+      <Container maxWidth="lg" className={style.skillsContainer}>
+        <Grid container>
+          {renderSkills}
+        </Grid>
+      </Container>
+    </FadeInAnimation>
   </section>;
 };
 
