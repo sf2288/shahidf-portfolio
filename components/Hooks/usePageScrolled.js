@@ -9,7 +9,7 @@ const usePageScrolled = () => {
   useEffect(() => {
     const handleScroll = () => {
       const y = window.scrollY;
-      if (ele && y > 90) {
+      if (ele && y > 150) {
         setIsPageScrolled(true);
       } else {
         setIsPageScrolled(false);

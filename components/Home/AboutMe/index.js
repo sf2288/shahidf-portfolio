@@ -1,35 +1,29 @@
-import { CircularProgress, Container, Grid, Typography } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import style from "./Styles.module.scss";
 import FadeInAnimation from "../../Common/FadeInAnimation";
 import React, { useEffect, useMemo, useState } from "react";
 import { Routes } from "../../../utils";
 import { TitlePattern } from "../../Common/TitlePattern";
-import dynamic from "next/dynamic";
-import { COUNTRY } from "../../../utils/constants";
+import { COUNTRY, MY_NAME } from "../../../utils/constants";
 import { useInView } from "react-intersection-observer";
-
-const LottieComponent = dynamic(() => import("../../Common/LottieComponent"));
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const AboutMe = () => {
-  const [animationData, setAnimationData] = useState(null);
   const [aboutMeRef, isAboutMeSectionInView] = useInView();
   const [hasLoadedOnce, setHasAboutMeLoadedOnce] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (isAboutMeSectionInView && !hasLoadedOnce) {
-      setIsLoading(isAboutMeSectionInView);
       setHasAboutMeLoadedOnce(isAboutMeSectionInView);
-      (async function() {
-        const animationJson = (await import("../../../public/lotties")).default;
-        setAnimationData(animationJson);
-        setIsLoading(false);
-      })();
     }
   }, [isAboutMeSectionInView]);
 
-  const renderAnimation = useMemo(() => <LottieComponent lottieJson={animationData}
-                                                         style={{ maxWidth: "100%" }}/>, [animationData]);
+  const renderAnimation = useMemo(() => {
+    return <LazyLoadImage src={"/about_me.gif"}
+                          alt={MY_NAME}
+                          height={300}
+                          width={500}/>;
+  }, []);
 
   return <section id={Routes[2].id} className={`${style.aboutMeSection} commonSecondarySection`} ref={aboutMeRef}>
     <Container maxWidth="lg">
@@ -69,9 +63,7 @@ const AboutMe = () => {
           </FadeInAnimation>
         </Grid>
         <Grid item md={5} xs={12} className={style.myImageContainer}>
-          {isLoading ?
-            <CircularProgress size="2rem" aria-label="aria-progress-loader"/> :
-            (isAboutMeSectionInView || hasLoadedOnce) && animationData ? <>{renderAnimation}</> : null}
+          {(isAboutMeSectionInView || hasLoadedOnce) ? <>{renderAnimation}</> : null}
         </Grid>
       </Grid>
     </Container>

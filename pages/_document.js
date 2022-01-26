@@ -13,19 +13,6 @@ export default class MyDocument extends Document {
   }
 
   render() {
-    const renderAnalytics = process.env.NEXT_PUBLIC_ENV === "PRODUCTION" && <>
-      <script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS}`}/>
-
-      <script dangerouslySetInnerHTML={{
-        __html: `window.dataLayer = window?.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GOOGLE_ANALYTICS}', {
-              page_path: window?.location?.href,
-            });`
-      }}/>
-    </>;
-
     return (
       <Html lang="en">
         <Head>
@@ -38,12 +25,21 @@ export default class MyDocument extends Document {
           <link rel="dns-prefetch" href={googleMapsApiDomain}/>
           <link rel="preconnect" href={googleAnalyticsDomain}/>
 
-          {renderAnalytics}
-
           <link rel="apple-touch-icon" sizes="180x180" href={`${IMAGES_BUCKET_URL}apple-touch-icon.webp`}/>
           <link rel="icon" type="image/png" sizes="32x32" href={`${IMAGES_BUCKET_URL}favicon-32x32.webp`}/>
           <link rel="icon" type="image/png" sizes="16x16" href={`${IMAGES_BUCKET_URL}favicon-16x16.webp`}/>
           <link rel="manifest" href="/site.webmanifest"/>
+
+          <script src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS}`}/>
+
+          <script dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window?.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GOOGLE_ANALYTICS}', {
+              page_path: window?.location?.href,
+            });`
+          }}/>
         </Head>
         <body>
         <Main/>
