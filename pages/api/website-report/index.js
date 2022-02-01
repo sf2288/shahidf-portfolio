@@ -18,7 +18,7 @@ export default (req, res) => {
   sgMail
     .send(msg)
     .then(() => {
-      res.status(200).json({ data: { status: "success", message: `Inquiry received! Thank you ${name}.` } });
+      res.status(200).json({ data: { status: "success", message: `Inquiry received! Thank you ${req?.body?.name}.` } });
     }, error => {
       console.error(error);
 

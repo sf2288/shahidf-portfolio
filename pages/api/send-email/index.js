@@ -22,7 +22,7 @@ export default (req, res) => {
       res.status(200).json({
         data: {
           status: "success",
-          message: `Thank you ${name}, Will get back to you shortly.`
+          message: `Thank you ${req?.body?.name}, Will get back to you shortly.`
         }
       });
     }, error => {
