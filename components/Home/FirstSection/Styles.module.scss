@@ -59,8 +59,10 @@
         align-items: center;
         gap: 1rem;
 
-        .socialIcon {
-          padding: 15px;
+        div {
+          .socialIcon {
+            padding: 15px;
+          }
         }
       }
 
@@ -120,6 +122,17 @@
   }
 }
 
+@media only screen and(max-width: 768px) {
+  .firstSection {
+    .about {
+      .avatar {
+        text-align: left;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
 @media only screen and(max-width: 425px) {
   .firstSection {
     padding: 8rem 0;
@@ -151,18 +164,6 @@
           display: none;
         }
       }
-
-      .avatar {
-        text-align: left;
-        margin-bottom: 1rem;
-
-        .avatarImage {
-          position: unset;
-          max-width: 100%;
-          max-height: 100%;
-          margin-bottom: 1rem;
-        }
-      }
     }
   }
 }
@@ -173,6 +174,17 @@
       .aboutContent {
         .title {
           font-size: 2.5rem;
+        }
+
+        .social {
+          div {
+            flex-wrap: wrap;
+
+            .socialIcon {
+              margin: 0;
+              padding: 0
+            }
+          }
         }
       }
     }

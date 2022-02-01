@@ -1,4 +1,5 @@
 import {
+  GOOGLE_SITE_VERIFICATION,
   IMAGES_BUCKET_URL,
   META_DESCRIPTION,
   META_KEYWORD,
@@ -57,6 +58,10 @@ export default {
     {
       property: "og:locale",
       content: "en_US"
+    },
+    {
+      property: "google-site-verification",
+      content: GOOGLE_SITE_VERIFICATION
     }
   ],
   additionalLinkTags: [

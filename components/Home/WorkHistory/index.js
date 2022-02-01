@@ -12,7 +12,6 @@ import TimelineContent from "@mui/lab/TimelineContent";
 import { WORK_HISTORY_DOT_COLOR } from "../../../utils/constants";
 import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import { useInView } from "react-intersection-observer";
-import FadeInAnimation from "../../Common/FadeInAnimation";
 
 const WorkHistory = ({ workHistory = [] }) => {
   const [workHistoryRef, isWorkHistoryInView] = useInView();
@@ -42,7 +41,7 @@ const WorkHistory = ({ workHistory = [] }) => {
           <TimelineConnector/>
         </TimelineSeparator>
         <TimelineContent className={style.timeLineContent}>
-          <Typography variant="h6" component="span">
+          <Typography variant="h6" component="span" className={style.label}>
             {d?.title}
           </Typography>
           <Typography paragraph>
@@ -58,10 +57,10 @@ const WorkHistory = ({ workHistory = [] }) => {
     <Container maxWidth="lg">
       <Grid container>
         <Grid item>
-          <Typography variant="div" component="h1" className="title">
+          <Typography variant="div" component="h2" className="title">
             <TitlePattern/> {Routes[3].title}
           </Typography>
-          <Typography variant="div" component="h2" className="subTitle">
+          <Typography variant="div" component="h3" className="subTitle">
             {Routes[3].subTitle}
           </Typography>
         </Grid>
@@ -70,10 +69,8 @@ const WorkHistory = ({ workHistory = [] }) => {
 
     <Container maxWidth="lg" className={style.timeline}>
       <Grid container>
-        <Grid item md={9} xs={12} className={style.timelineGrid}>
-          <FadeInAnimation>
-            {renderTimeline}
-          </FadeInAnimation>
+        <Grid item md={9} xs={12} className={style.timelineGrid} data-aos="fade-zoom-in" data-aos-easing="ease-in-back">
+          {renderTimeline}
         </Grid>
       </Grid>
     </Container>

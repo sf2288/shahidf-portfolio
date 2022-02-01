@@ -6,12 +6,14 @@ const Portfolio = dynamic(() => import("./Portfolio"));
 const HireMe = dynamic(() => import("./HireMe"));
 const AboutMe = dynamic(() => import("./AboutMe"));
 const WorkHistory = dynamic(() => import("./WorkHistory"));
+const WebsiteReport = dynamic(() => import("./WebsiteReport"));
 const Skills = dynamic(() => import("./Skills"));
 
-const HomeComponent = ({ MY_PHOTO, skills, projects, workHistory }) => {
+const HomeComponent = ({ skills, projects, workHistory }) => {
 
   return <main>
-    <FirstSection MY_PHOTO={MY_PHOTO}/>
+
+    <FirstSection/>
 
     <Portfolio projects={projects}/>
 
@@ -22,6 +24,8 @@ const HomeComponent = ({ MY_PHOTO, skills, projects, workHistory }) => {
     <WorkHistory workHistory={workHistory}/>
 
     <Skills skills={skills}/>
+
+    <WebsiteReport/>
   </main>;
 };
 export default HomeComponent;

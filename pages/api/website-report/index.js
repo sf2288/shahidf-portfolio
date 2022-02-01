@@ -1,4 +1,4 @@
-import { EMAIL_ID, SEND_GRID_API_KEY, SUBJECT } from "../../../utils/constants";
+import { EMAIL_ID, SEND_GRID_API_KEY, WEBSITE_TECHNICAL_REPORT } from "../../../utils/constants";
 
 const sgMail = require("@sendgrid/mail");
 
@@ -6,25 +6,19 @@ sgMail.setApiKey(SEND_GRID_API_KEY);
 
 export default (req, res) => {
   const name = `<div style='margin-bottom: 1rem'><strong>Name:</strong> ${req?.body?.name}</div>`;
-  const phone = `<div style='margin-bottom: 1rem'><strong>Phone:</strong> ${req?.body?.phone}</div>`;
-  const message = `<div style='margin-bottom: 1rem'><strong>Message:</strong> ${req?.body?.message}</div>`;
+  const website = `<div style='margin-bottom: 1rem'><strong>Website:</strong> 
+<a href={req?.body?.website} target="_blank" rel="noopener noreferrer">${req?.body?.website}</a></div>`;
 
   const msg = {
     to: EMAIL_ID,
     from: req?.body?.email,
-    subject: `${SUBJECT} ${req?.body?.name}`,
-    text: req?.body?.message,
-    html: `<div>${name + phone + message}</div>`
+    subject: `${WEBSITE_TECHNICAL_REPORT} ${req?.body?.website}`,
+    html: `<div>${name + website}</div>`
   };
   sgMail
     .send(msg)
     .then(() => {
-      res.status(200).json({
-        data: {
-          status: "success",
-          message: `Thank you ${name}, Will get back to you shortly.`
-        }
-      });
+      res.status(200).json({ data: { status: "success", message: `Inquiry received! Thank you ${name}.` } });
     }, error => {
       console.error(error);
 

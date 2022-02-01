@@ -16,7 +16,6 @@ import {
 import React, { useEffect, useMemo, useState } from "react";
 import { TitlePattern } from "../../Common/TitlePattern";
 import { GridView, InfoOutlined, Splitscreen } from "@mui/icons-material";
-import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import dynamic from "next/dynamic";
 
@@ -24,28 +23,6 @@ const SliderComponent = dynamic(() => import("./SliderComponent"));
 
 const TYPE_LIST = "LIST";
 const TYPE_GRID = "GRID";
-
-const FadeInWhenVisible = ({ children }) => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView();
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
-
-  return <motion.div ref={ref}
-                     animate={controls}
-                     initial="hidden"
-                     transition={{ duration: 0.5 }}
-                     variants={{
-                       visible: { opacity: 1, scale: 1 },
-                       hidden: { opacity: 0, scale: 0 }
-                     }}>
-    {children}
-  </motion.div>;
-};
 
 const Portfolio = ({ projects = [] }) => {
   const [portfolioRef, isPortfolioSectionInView] = useInView();
@@ -75,43 +52,44 @@ const Portfolio = ({ projects = [] }) => {
 
   const renderPortfolios = useMemo(() => projects.map((d, i) => {
     return <Grid key={i} id={d?.id} item sm={10} xs={12} className={style.grid}>
-      <FadeInWhenVisible>
-        <div className={style.portfolioCard}>
-          {d?.images && d.images.length ?
-            <div className={style.projectImage}>
-              <SliderComponent index={i} data={d} view={view} TYPE_GRID={TYPE_GRID}/>
-            </div> : null}
-          <div className={style.projectInfo}>
-            <div className={style.title}>
-              {d?.project_url ? <a href={d?.project_url} target="_blank" rel="noopener noreferrer">
-                <Typography variant="h4" gutterBottom className={style.projectName}>
-                  {d?.project_name}
-                </Typography>
-              </a> : <Typography variant="h4" gutterBottom>
+      <div className={style.portfolioCard} data-aos="zoom-in">
+        {d?.images && d.images.length ?
+          <div className={style.projectImage}>
+            <SliderComponent index={i} data={d} view={view} TYPE_GRID={TYPE_GRID}/>
+          </div> : null}
+        <div className={style.projectInfo}>
+          <div className={style.title}>
+            {d?.project_url ? <a href={d?.project_url} target="_blank" rel="noopener noreferrer">
+              <Typography variant="h4" gutterBottom className={style.projectName}>
                 {d?.project_name}
-              </Typography>}
-              <Chip label={d?.type} color="primary" size="small" variant="outlined"/>
-            </div>
+              </Typography>
+            </a> : <Typography variant="h4" gutterBottom>
+              {d?.project_name}
+            </Typography>}
+            <Chip label={d?.type} color="primary" size="small" variant="outlined"/>
+          </div>
 
-            {d?.note ?
-              <Alert severity="warning" icon={<InfoOutlined/>} className={style.alert}>{d?.note}</Alert> : null}
+          {d?.note ?
+            <Alert severity="warning" icon={<InfoOutlined/>} className={style.alert}>{d?.note}</Alert> : null}
 
-            <div className={style.descriptionSection}>
-              {d?.description ? <>
-                <Typography variant="div" component="h3">Description:</Typography>
+          <div className={style.descriptionSection}>
+            {d?.description ? <>
+              <Typography variant="div" component="h3">Description:</Typography>
 
-                <Typography paragraph>
-                  <div dangerouslySetInnerHTML={{ __html: d?.description }}/>
-                </Typography>
-              </> : null}
-              <div>
+              <Typography paragraph>
+                <div dangerouslySetInnerHTML={{ __html: d?.description }}/>
+              </Typography>
+            </> : null}
+            <div>
+              <Typography variant="div" component="h3">Tech used and deliverables:</Typography>
+              <div className={style.tagsContainer}>
                 {d?.tags && d?.tags.length ? d?.tags.map(d => <Chip key={d} label={d}
                                                                     className={style.tags}/>) : null}
               </div>
             </div>
           </div>
         </div>
-      </FadeInWhenVisible>
+      </div>
     </Grid>;
   }), []);
 
@@ -121,10 +99,10 @@ const Portfolio = ({ projects = [] }) => {
     <Container maxWidth="lg">
       <Grid container>
         <Grid item>
-          <Typography variant="div" component="h1" className="title">
+          <Typography variant="div" component="h2" className="title">
             <TitlePattern/> {Routes[1].title}
           </Typography>
-          <Typography variant="div" component="h2" className="subTitle">
+          <Typography variant="div" component="h3" className="subTitle">
             {Routes[1].subTitle}
           </Typography>
         </Grid>

@@ -30,9 +30,9 @@ export default class MyDocument extends Document {
           <link rel="icon" type="image/png" sizes="16x16" href={`${IMAGES_BUCKET_URL}favicon-16x16.webp`}/>
           <link rel="manifest" href="/site.webmanifest"/>
 
-          <script src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS}`}/>
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS}`}/>
 
-          <script dangerouslySetInnerHTML={{
+          <script async dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window?.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());

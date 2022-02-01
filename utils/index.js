@@ -37,6 +37,12 @@ export const Routes = [
     id: "skills"
   },
   {
+    title: "Test Waters",
+    route: "#website-report",
+    id: "website-report",
+    subTitle: "Book Your Free Technical Report"
+  },
+  {
     title: "Contact",
     route: "#contact",
     id: "contact",
@@ -48,6 +54,13 @@ export const HIRE_ME_ID = {
   title: "Hire Me",
   route: "#hire-me",
   id: "hire-me"
+};
+
+export const WEBSITE_REPORT = {
+  title: "Want to test or fix your website performance?",
+  route: "#website-report",
+  id: "website-report",
+  subTitle: "Book Your Free Technical Report"
 };
 
 export const SkillsList = [

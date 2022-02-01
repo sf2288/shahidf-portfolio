@@ -4,9 +4,17 @@ import { IconButton, Tooltip, Typography, Zoom } from "@mui/material";
 import { MY_SOCIAL_PROFILES } from "../../../utils/constants";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { sendGoogleAnalyticsEvent } from "../../../utils";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles(() => ({
+  tooltip: {
+    fontSize: "15px !important"
+  }
+}));
 
 const SocialIconsComponent = ({ open = false, hideUpwork = false, hideContactMe = false }) => {
   const [socialProfiles, setSocialProfiles] = useState([]);
+  const classes = useStyles();
 
   useEffect(() => {
     if (hideUpwork) {
@@ -26,7 +34,8 @@ const SocialIconsComponent = ({ open = false, hideUpwork = false, hideContactMe 
                   target={d?.target}
                   rel="noopener noreferrer"
                   onClick={() => sendGoogleAnalyticsEvent("social_icon_click", { "social_icon_click": d?.name })}>
-          <Tooltip open={open} TransitionComponent={Zoom} title={d?.title}>
+          <Tooltip open={open} TransitionComponent={Zoom} title={d?.title}
+                   classes={{ tooltip: classes.tooltip }}>
             <IconButton aria-label={d?.title}
                         color="primary"
                         size="large"

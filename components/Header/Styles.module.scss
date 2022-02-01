@@ -38,7 +38,7 @@
 
       li {
         cursor: pointer;
-        font-size: 17px;
+        font-size: 18px;
         font-weight: bold;
         padding: 1rem .5rem;
 
@@ -55,8 +55,9 @@
     .btnHireMe {
       text-transform: inherit;
       border-radius: 50px;
-      font-size: 17px;
+      font-size: 18px;
       background-color: $colorGreen !important;
+      transition: unset;
 
       .icon {
         margin-left: .5rem;

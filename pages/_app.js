@@ -6,11 +6,14 @@ import Layout from "../components/Layout";
 import { DefaultSeo } from "next-seo";
 import SEO from "./../next-seo.config";
 import { sendGoogleAnalyticsEvent } from "../utils";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const MyApp = ({ Component, pageProps }) => {
 
   useEffect(() => {
     sendGoogleAnalyticsEvent("main_page_load", { "main_page_load": window?.location?.href });
+    AOS.init({ once: true });
   }, []);
 
   return (

@@ -16,6 +16,7 @@
 
     .socialIcon {
       padding: 15px;
+      margin: 0 .5rem
     }
   }
 }
@@ -24,6 +25,16 @@
   .social {
     div {
       justify-content: center;
+    }
+  }
+}
+
+@media only screen and(max-width: 320px) {
+  .social {
+    div {
+      .socialIcon {
+        margin: 0
+      }
     }
   }
 }

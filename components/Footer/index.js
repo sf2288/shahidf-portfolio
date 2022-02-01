@@ -20,17 +20,21 @@ const Footer = () => {
     }
   }, [isContactInView]);
 
-  const renderForm = useMemo(() => (isContactInView || hasLoadedOnce) && <FormComponent/>, [isContactInView]);
+  const renderForm = useMemo(() => {
+    if (isContactInView || hasLoadedOnce) {
+      return <FormComponent/>;
+    }
+  }, [isContactInView]);
 
-  return <section id={Routes[5].id} className={`bgGray ${style.contacts} commonSecondarySection`} ref={contactRef}>
+  return <section id={Routes[6].id} className={`${style.contacts} commonSecondarySection`} ref={contactRef}>
     <Container maxWidth="lg">
       <Grid container>
         <Grid item>
-          <Typography variant="div" component="h1" className="title">
-            <TitlePattern/> {Routes[5].title}
+          <Typography variant="div" component="h2" className="title">
+            <TitlePattern/> {Routes[6].title}
           </Typography>
-          <Typography variant="div" component="h2" className="subTitle">
-            {Routes[5].subTitle}
+          <Typography variant="div" component="h3" className="subTitle">
+            {Routes[6].subTitle}
           </Typography>
         </Grid>
       </Grid>
@@ -57,7 +61,7 @@ const Footer = () => {
         </Grid>
         <Grid item md={4} sm={12} className={style.contactInfo}>
           <div className={style.icon}>
-            <a href={MY_SOCIAL_PROFILES[3].url} target={MY_SOCIAL_PROFILES[3].target} rel="noopener noreferrer"
+            <a href={MY_SOCIAL_PROFILES[2].url} target={MY_SOCIAL_PROFILES[2].target} rel="noopener noreferrer"
                onClick={() => sendGoogleAnalyticsEvent("footer_contact_phone_icon_click", { "footer_contact_phone_icon_click": true })}>
               <IconButton aria-label="Phone"
                           color="primary"
@@ -68,7 +72,7 @@ const Footer = () => {
             </a>
           </div>
           <div className={style.detail}>
-            <a href={MY_SOCIAL_PROFILES[3].url} target={MY_SOCIAL_PROFILES[3].target} rel="noopener noreferrer"
+            <a href={MY_SOCIAL_PROFILES[2].url} target={MY_SOCIAL_PROFILES[2].target} rel="noopener noreferrer"
                onClick={() => sendGoogleAnalyticsEvent("footer_contact_phone_click", { "footer_contact_phone_click": true })}>
               <Typography variant="h6" component="div">
                 Phone

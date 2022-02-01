@@ -2,7 +2,7 @@ import { Container, Grid, Typography } from "@mui/material";
 import style from "./Styles.module.scss";
 import React from "react";
 import { Routes, sendGoogleAnalyticsEvent } from "../../../utils";
-import { COUNTRY, CV_URL, MY_NAME } from "../../../utils/constants";
+import { COUNTRY, CV_URL, MY_NAME, MY_PHOTO } from "../../../utils/constants";
 import Button from "@mui/material/Button";
 import { ArrowDownward, Send } from "@mui/icons-material";
 import dynamic from "next/dynamic";
@@ -10,7 +10,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const SocialIconsComponent = dynamic(() => import("../../Common/SocialIconsComponent"));
 
-const FirstSection = ({ MY_PHOTO }) => {
+const FirstSection = () => {
 
   const handleScrollInto = (id) => {
     const ele = document.getElementById(id);
@@ -20,11 +20,12 @@ const FirstSection = ({ MY_PHOTO }) => {
   };
 
   return <section className={`commonSection ${style.firstSection}`}>
+
     <Container maxWidth="md">
       <Grid container className={style.about}>
         <Grid item md={8} sm={12} className={style.aboutContent}>
           <Typography variant="h2" className={style.title}>{MY_NAME}</Typography>
-          <Typography variant="h5" className={style.subTitle} gutterBottom>
+          <Typography component="h1" variant="h5" className={style.subTitle} gutterBottom>
             A meticulous <span className={style.subText}>Front-End Developer</span> based in {COUNTRY}.
           </Typography>
           <br/>
@@ -37,8 +38,8 @@ const FirstSection = ({ MY_PHOTO }) => {
           <div className={style.mainCTAs}>
             <Button variant="contained" className={style.btnGetInTouch}
                     onClick={() => {
-                      handleScrollInto(Routes[5].id);
-                      sendGoogleAnalyticsEvent("hero_get_in_touch_click", { "hero_get_in_touch_click": Routes[5].id });
+                      handleScrollInto(Routes[6].id);
+                      sendGoogleAnalyticsEvent("hero_get_in_touch_click", { "hero_get_in_touch_click": Routes[6].id });
                     }}>
               Get In Touch <Send className={style.icon} fontSize="large"/>
             </Button>

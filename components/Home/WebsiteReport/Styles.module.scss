@@ -1,0 +1,103 @@
+@import "../../../styles/variables";
+
+/*.checkPerformance {
+  position: fixed;
+  right: 10px;
+  top: 70px;
+  z-index: 10000;
+  cursor: pointer;
+
+  .card {
+    background-color: $colorBlue;
+    position: relative;
+
+    .cardContent {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: .5rem;
+
+      .gauge {
+        color: $colorWhite;
+      }
+
+      p {
+        color: $colorWhite;
+        font-weight: bold;
+        font-size: 17px;
+
+        span {
+        }
+      }
+    }
+  }
+}*/
+
+.websiteReportSection {
+  padding-bottom: 0;
+
+  .gauge {
+    color: $colorBlue;
+  }
+
+  .websiteReportContainer {
+    margin-top: 3rem;
+
+    .formContainer {
+      margin-top: 7rem;
+      margin-bottom: 7rem;
+
+      .input {
+        width: 100%;
+        margin: .5rem 0;
+        font-size: 18px;
+      }
+
+      .sendReport {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+
+        .submitButtonContainer {
+          display: flex;
+          align-items: center;
+
+          .submitButton {
+            width: 250px;
+            padding: 0.5rem;
+            border-radius: 50px;
+            margin-right: 1rem;
+            font-size: 20px;
+            text-transform: inherit;
+            margin-bottom: 16px;
+          }
+
+          .icon {
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+
+    .reportItemsContainer {
+      margin-top: 3rem;
+
+      .reportItems {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 1.5rem 0;
+
+        .icon {
+          transform: scale(1.5);
+          margin-bottom: 1rem;
+        }
+
+        .label {
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}

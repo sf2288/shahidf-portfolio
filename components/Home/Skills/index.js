@@ -4,7 +4,6 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Routes } from "../../../utils";
 import { TitlePattern } from "../../Common/TitlePattern";
 import { IMAGES_BUCKET_URL } from "../../../utils/constants";
-import FadeInAnimation from "../../Common/FadeInAnimation";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useInView } from "react-intersection-observer";
 
@@ -26,7 +25,7 @@ const Skills = ({ skills = [] }) => {
                        alt={d?.label}
                        height={70}
                        width={80}/>
-        <Typography variant="div" component="h3" className={style.skillName}>
+        <Typography variant="div" component="h3" className={style.label}>
           {d?.label}
         </Typography>
       </div>
@@ -37,23 +36,21 @@ const Skills = ({ skills = [] }) => {
     <Container maxWidth="lg">
       <Grid container>
         <Grid item>
-          <Typography variant="div" component="h1" className="title">
+          <Typography variant="div" component="h2" className="title">
             <TitlePattern/> {Routes[4].title}
           </Typography>
-          <Typography variant="div" component="h2" className="subTitle">
+          <Typography variant="div" component="h3" className="subTitle">
             {Routes[4].subTitle}
           </Typography>
         </Grid>
       </Grid>
     </Container>
 
-    <FadeInAnimation>
-      <Container maxWidth="lg" className={style.skillsContainer}>
-        <Grid container>
-          {renderSkills}
-        </Grid>
-      </Container>
-    </FadeInAnimation>
+    <Container maxWidth="lg" className={style.skillsContainer} data-aos="fade-zoom-in" data-aos-easing="ease-in-back">
+      <Grid container>
+        {renderSkills}
+      </Grid>
+    </Container>
   </section>;
 };
 

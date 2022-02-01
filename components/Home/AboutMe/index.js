@@ -1,10 +1,9 @@
 import { Container, Grid, Typography } from "@mui/material";
 import style from "./Styles.module.scss";
-import FadeInAnimation from "../../Common/FadeInAnimation";
 import React, { useEffect, useMemo, useState } from "react";
 import { Routes } from "../../../utils";
 import { TitlePattern } from "../../Common/TitlePattern";
-import { COUNTRY, MY_NAME } from "../../../utils/constants";
+import { COUNTRY, IMAGES_BUCKET_URL, MY_NAME } from "../../../utils/constants";
 import { useInView } from "react-intersection-observer";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
@@ -19,7 +18,7 @@ const AboutMe = () => {
   }, [isAboutMeSectionInView]);
 
   const renderAnimation = useMemo(() => {
-    return <LazyLoadImage src={"/about_me.gif"}
+    return <LazyLoadImage src={`${IMAGES_BUCKET_URL}about/about_me.gif`}
                           alt={MY_NAME}
                           height={300}
                           width={500}/>;
@@ -29,38 +28,37 @@ const AboutMe = () => {
     <Container maxWidth="lg">
       <Grid container>
         <Grid item>
-          <Typography variant="div" component="h1" className="title">
+          <Typography variant="div" component="h2" className="title">
             <TitlePattern/> {Routes[2].title}
           </Typography>
-          <Typography variant="div" component="h2" className={`subTitle ${style.subTitle}`}>
+          <Typography variant="div" component="h2" className="subTitle">
             {Routes[2].subTitle} {COUNTRY}
           </Typography>
         </Grid>
       </Grid>
     </Container>
     <Container maxWidth="lg" className={style.aboutMe}>
-      <Grid container>
+      <Grid container spacing={2}>
         <Grid item md={7} xs={12}>
-          <FadeInAnimation>
-            <div className={style.myInfo}>
-              I’m a front-end web developer with over 4 years of experience. I work with agencies/individuals across
-              the
-              globe to create high performance & rich interactive websites that work across all platforms & devices.
+          <div className={style.myInfo} data-aos="fade-zoom-in" data-aos-easing="ease-in-back">
+            <Typography paragraph>
+              I’m a <b>front-end web developer</b> with over 4 years of experience. I work with agencies/individuals
+              across the globe to create high performance & rich interactive websites that work across all platforms &
+              devices.
               <br/><br/>
-              Although I'm very familiar with using frameworks, my websites are primarily hand-coded using HTML5,
-              CSS3,
-              React.js, Next.js, Material-UI & ofCourse JavaScript.
+              Although I'm very familiar with using frameworks, my websites are primarily hand-coded using <b>HTML5,
+              CSS3, React.js, Next.js, Material-UI & ofCourse JavaScript by following best-practices</b>.
               <br/><br/>
-              With a strong emphasis on "Progressive Enhancement", I look for creative ways to push the boundaries of
-              website front-end code without compromising on browser support and performance.
+              With a strong emphasis on <b>Progressive Enhancement</b>, I look for creative ways to push the
+              boundaries of website front-end code without compromising on browser support and performance.
               <br/><br/>
               In a quest for always keeping myself updated, I read articles on various blogs like Medium, Daily.dev,
               Quora, etc and attend conferences & meetups.
-              <Typography paragraph className={style.highLightedText}>
-                Allora lavoriamo insieme! &#128521;
-              </Typography>
-            </div>
-          </FadeInAnimation>
+            </Typography>
+            <Typography paragraph className={style.highLightedText}>
+              Allora lavoriamo insieme! &#128521;
+            </Typography>
+          </div>
         </Grid>
         <Grid item md={5} xs={12} className={style.myImageContainer}>
           {(isAboutMeSectionInView || hasLoadedOnce) ? <>{renderAnimation}</> : null}

@@ -29,74 +29,66 @@
     }
   }
 
-  .form {
-    .input {
-      width: 100%;
-      margin: 1rem 0;
-      font-size: 18px;
-    }
+  .formContainer {
+    .form {
+      margin: auto;
 
-    .budgetList {
-      margin: 1rem 0;
-
-      .maxBudget {
-        border-left: 1px solid $colorPrimary;
-        margin-left: 1rem;
-        padding-left: 1rem;
+      .input {
+        width: 100%;
+        margin: .5rem 0;
+        font-size: 18px;
       }
 
-      /*.chip {
-        display: flex;
-        justify-content: center;
-        margin: 0 1rem 1rem 0;
-        font-size: 14px;
-        color: $colorWhite;
-      }
+      .budgetList {
+        margin: 1rem 0;
 
-      .nonSelected {
-        background-color: #212121;
-      }
-
-      .selected {
-        background-color: $colorBlue;
-      }*/
-    }
-
-    .footerCTA {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-
-      .submitButtonContainer {
-        display: flex;
-        align-items: center;
-        margin-top: 1rem;
-
-        .submitButton {
-          width: 250px;
-          margin-right: 1rem;
-          padding: 0.5rem;
-          border-radius: 50px;
-          font-size: 20px;
-          text-transform: inherit;
-
-          .icon {
-            transform: rotate(330deg);
-            margin-left: 1rem;
-            padding-bottom: 0.5rem;
-          }
+        .maxBudget {
+          border-left: 1px solid $colorPrimary;
+          margin-left: 1rem;
+          padding-left: 1rem;
         }
+
+        /*.chip {
+          display: flex;
+          justify-content: center;
+          margin: 0 1rem 1rem 0;
+          font-size: 14px;
+          color: $colorWhite;
+        }
+
+        .nonSelected {
+          background-color: #212121;
+        }
+
+        .selected {
+          background-color: $colorBlue;
+        }*/
       }
-    }
 
-    .mapContainer {
-      margin: 0 0 5rem 0;
+      .footerCTA {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
 
-      div {
-        border-radius: 10px;
+        .submitButtonContainer {
+          display: flex;
+          align-items: center;
+          margin-top: 1rem;
 
-        &:first-child {
-          height: 100%;
+          .submitButton {
+            width: 250px;
+            margin-right: 1rem;
+            padding: 0.5rem;
+            border-radius: 50px;
+            font-size: 20px;
+            text-transform: inherit;
+
+            .icon {
+              transform: rotate(330deg);
+              margin-left: 1rem;
+              padding-bottom: 0.5rem;
+            }
+          }
         }
       }
     }
@@ -114,15 +106,13 @@
   }
 }
 
-.grayBg {
-  background-color: $colorGrayBg;
-}
-
 @media only screen and(max-width: 768px) {
   .contacts {
-    .form {
-      .input {
-        width: 100%;
+    .formContainer {
+      .form {
+        .input {
+          width: 100%;
+        }
       }
     }
 
