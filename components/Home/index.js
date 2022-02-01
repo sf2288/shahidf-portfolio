@@ -11,7 +11,7 @@ const Skills = dynamic(() => import("./Skills"));
 
 const HomeComponent = ({ skills, projects, workHistory }) => {
 
-  return <main>
+  return <main className="main-content">
 
     <FirstSection/>
 
