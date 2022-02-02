@@ -72,21 +72,18 @@ const Portfolio = ({ projects = [] }) => {
           {d?.note ?
             <Alert severity="warning" icon={<InfoOutlined/>} className={style.alert}>{d?.note}</Alert> : null}
 
-          <div className={style.descriptionSection}>
-            {d?.description ? <>
-              <Typography variant="div" component="h3">Description:</Typography>
+          {d?.description ? <>
+            <Typography variant="div" component="h3">Description:</Typography>
 
-              <Typography paragraph>
-                <div dangerouslySetInnerHTML={{ __html: d?.description }}/>
-              </Typography>
-            </> : null}
-            <div>
-              <Typography variant="div" component="h3">Tech used and deliverables:</Typography>
-              <div className={style.tagsContainer}>
-                {d?.tags && d?.tags.length ? d?.tags.map(d => <Chip key={d} label={d}
-                                                                    className={style.tags}/>) : null}
-              </div>
-            </div>
+            <Typography paragraph>
+              <div dangerouslySetInnerHTML={{ __html: d?.description }}/>
+            </Typography>
+          </> : null}
+
+          <Typography variant="div" component="h3">Tech used and deliverables:</Typography>
+          <div className={style.tagsContainer}>
+            {d?.tags && d?.tags.length ? d?.tags.map(d => <Chip key={d} label={d}
+                                                                className={style.tags}/>) : null}
           </div>
         </div>
       </div>

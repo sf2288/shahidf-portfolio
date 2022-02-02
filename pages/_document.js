@@ -5,7 +5,6 @@ import { ServerStyleSheets as MaterialUiServerStyleSheets } from "@mui/styles";
 import { GOOGLE_ANALYTICS, IMAGES_BUCKET_URL, MY_PREVIEW_PHOTO } from "../utils/constants";
 
 const googleFontsApiDomain = "https://fonts.googleapis.com";
-const googleMapsApiDomain = "https://maps.googleapis.com";
 const googleAnalyticsDomain = "https://www.google-analytics.com";
 
 export default class MyDocument extends Document {
@@ -20,9 +19,6 @@ export default class MyDocument extends Document {
           <link rel="preconnect" href={googleFontsApiDomain}/>
           <link rel="dns-prefetch" href={googleFontsApiDomain}/>
           <link rel="preconnect" href={IMAGES_BUCKET_URL}/>
-          <link rel="dns-prefetch" href={IMAGES_BUCKET_URL}/>
-          <link rel="preconnect" href={googleMapsApiDomain}/>
-          <link rel="dns-prefetch" href={googleMapsApiDomain}/>
           <link rel="preconnect" href={googleAnalyticsDomain}/>
 
           <link rel="apple-touch-icon" sizes="180x180" href={`${IMAGES_BUCKET_URL}apple-touch-icon.webp`}/>
@@ -36,8 +32,8 @@ export default class MyDocument extends Document {
             __html: `window.dataLayer = window?.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GOOGLE_ANALYTICS}', {
-              page_path: window?.location?.href,
+            gtag('config', ${GOOGLE_ANALYTICS}, {
+              page_path: ${typeof window !== "undefined" && window?.location?.href},
             });`
           }}/>
         </Head>

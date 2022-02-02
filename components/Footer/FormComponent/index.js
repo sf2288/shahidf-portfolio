@@ -141,7 +141,7 @@ const FormComponent = () => {
                            </InputAdornment> : null}/>
                 </Grid>
                 <Grid item xs={12}>
-                  Phone
+                  Phone (optional)
                   <Input placeholder="+44 7400 123456"
                          value={phone}
                          type="tel"

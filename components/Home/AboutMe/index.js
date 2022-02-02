@@ -31,7 +31,7 @@ const AboutMe = () => {
           <Typography variant="div" component="h2" className="title">
             <TitlePattern/> {Routes[2].title}
           </Typography>
-          <Typography variant="div" component="h2" className="subTitle">
+          <Typography variant="div" component="h3" className="subTitle">
             {Routes[2].subTitle} {COUNTRY}
           </Typography>
         </Grid>
@@ -42,7 +42,7 @@ const AboutMe = () => {
         <Grid item md={7} xs={12}>
           <div className={style.myInfo} data-aos="fade-zoom-in" data-aos-easing="ease-in-back">
             <Typography paragraph>
-              I’m a <b>front-end web developer</b> with over 4 years of experience. I work with agencies/individuals
+              A <b>front-end web developer</b> with over 4 years of experience. I work with agencies/individuals
               across the globe to create high performance & rich interactive websites that work across all platforms &
               devices.
               <br/><br/>

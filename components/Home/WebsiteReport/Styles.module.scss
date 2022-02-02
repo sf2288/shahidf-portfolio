@@ -35,16 +35,25 @@
 
 .websiteReportSection {
   padding-bottom: 0;
+  background-color: $colorBlue;
+  color: $colorWhite;
+
+  .titlePattern {
+    filter: brightness(100);
+  }
 
   .gauge {
     color: $colorBlue;
+  }
+
+  .textMessage {
+    margin-top: 3rem;
   }
 
   .websiteReportContainer {
     margin-top: 3rem;
 
     .formContainer {
-      margin-top: 7rem;
       margin-bottom: 7rem;
 
       .input {
@@ -80,7 +89,6 @@
     }
 
     .reportItemsContainer {
-      margin-top: 3rem;
 
       .reportItems {
         display: flex;
@@ -90,13 +98,25 @@
         margin: 1.5rem 0;
 
         .icon {
-          transform: scale(1.5);
+          transform: scale(1);
           margin-bottom: 1rem;
+          background-color: $colorWhite;
         }
 
         .label {
           font-size: 17px;
+          text-align: center;
         }
+      }
+    }
+  }
+}
+
+@media only screen and(max-width: 425px) {
+  .websiteReportSection {
+    .websiteReportContainer {
+      .formContainer {
+        margin-top: 3rem;
       }
     }
   }

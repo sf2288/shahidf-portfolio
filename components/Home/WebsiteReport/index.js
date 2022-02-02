@@ -162,24 +162,25 @@ const WebsiteReport = () => {
     <Container maxWidth="lg">
       <Grid container>
         <Grid item>
-          <Typography variant="div" component="h2" className="title">
-            <TitlePattern/> {WEBSITE_REPORT.title}
+          <Typography variant="div" component="h2" className="title colorWhite">
+            <TitlePattern className={style.titlePattern}/> {WEBSITE_REPORT.title}
           </Typography>
-          <Typography variant="div" component="h2" className="subTitle">
+          <Typography variant="div" component="h3" className="subTitle">
             {WEBSITE_REPORT.subTitle} <IconButton className={style.gauge}
                                                   size="large">
             <Speed fontSize="large"/>
           </IconButton>
+          </Typography>
+
+          <Typography paragraph className={style.textMessage}>
+            Let me review your existing site before you commit to working with me on an awesome new one.
+            In your FREE site analysis, you will understand exactly where your site can improve.
           </Typography>
         </Grid>
       </Grid>
       <Grid container spacing={3} className={style.websiteReportContainer} data-aos="fade-zoom-in"
             data-aos-easing="ease-in-back">
         <Grid item md={6} xs={12}>
-          <Typography paragraph>
-            Let me review your existing site before you commit to working with me on an awesome new one.
-            In your FREE site analysis, you will understand exactly where your site can improve.
-          </Typography>
           <Container className={style.reportItemsContainer}>
             <Grid container>
               {REPORT_ITEMS?.map(d => {
@@ -258,8 +259,8 @@ const WebsiteReport = () => {
                     </Typography> : null}*/}
 
                     <Typography paragraph>
-                      I'll be sending you the report. Keep an eye on your email (and spam if we haven't chatted in the
-                      past).
+                      <b>Note:</b> I'll be sending you the report. Keep an eye on your email (and spam if we haven't
+                      chatted in the past).
                     </Typography>
                   </Grid>
                 </Grid>
