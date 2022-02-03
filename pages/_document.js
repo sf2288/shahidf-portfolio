@@ -2,7 +2,7 @@ import React from "react";
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
 import { ServerStyleSheets as MaterialUiServerStyleSheets } from "@mui/styles";
-import { GOOGLE_ANALYTICS, IMAGES_BUCKET_URL, MY_PREVIEW_PHOTO } from "../utils/constants";
+import { GOOGLE_ANALYTICS, IMAGES_BUCKET_URL, MY_DOMAIN, MY_PREVIEW_PHOTO } from "../utils/constants";
 
 const googleFontsApiDomain = "https://fonts.googleapis.com";
 const googleAnalyticsDomain = "https://www.google-analytics.com";
@@ -33,7 +33,7 @@ export default class MyDocument extends Document {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', ${GOOGLE_ANALYTICS}, {
-              page_path: ${typeof window !== "undefined" && window?.location?.href},
+              page_path: ${typeof window !== "undefined" ? window?.location?.href : MY_DOMAIN},
             });`
           }}/>
         </Head>
