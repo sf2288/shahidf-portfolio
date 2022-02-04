@@ -12,7 +12,9 @@ import "aos/dist/aos.css";
 const MyApp = ({ Component, pageProps }) => {
 
   useEffect(() => {
-    sendGoogleAnalyticsEvent("main_page_load", { "main_page_load": window?.location?.href });
+    if (typeof window !== "undefined") {
+      sendGoogleAnalyticsEvent("main_page_load", { "main_page_load": window?.location?.href });
+    }
     AOS.init({ once: true });
   }, []);
 
