@@ -181,10 +181,11 @@
               margin-top: 1rem;
               display: flex;
               flex-wrap: wrap;
-              gap: 0.5rem;
 
               .tags {
                 max-width: 100%;
+                margin-right: .5rem;
+                margin-bottom: .5rem;
                 font-size: 14px;
               }
             }
