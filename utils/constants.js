@@ -21,7 +21,7 @@ export const LATITUDE = "21.1702";
 export const LONGITUDE = "72.8311";
 export const TWITTER_HANDLE = "@js_shahidf";
 
-export const META_TITLE = "Shahid Farooqui | Freelance Front-End Web Developer | London | UK | India";
+export const META_TITLE = "Shahid Farooqui | Freelance Frontend Web Developer, London, UK, India";
 export const META_DESCRIPTION = `Responsive design, Landing page developer, professional web design, frontend developer in london uk, 
 freelancer in europe, React developer, Next.js developer, website developer on upwork, Website developer near me, ui ux, 
 API Integration, freelancer near me, website development service, frontend developer near london`;
