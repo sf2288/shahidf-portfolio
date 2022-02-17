@@ -75,16 +75,16 @@ const Portfolio = ({ projects = [] }) => {
           {d?.description ? <>
             <Typography variant="div" component="h3">Description:</Typography>
 
-            <Typography paragraph>
+            <Typography paragraph className={style.description}>
               <div dangerouslySetInnerHTML={{ __html: d?.description }}/>
             </Typography>
           </> : null}
-
-          <Typography variant="div" component="h3">Tech used and deliverables:</Typography>
-          <div className={style.tagsContainer}>
-            {d?.tags && d?.tags.length ? d?.tags.map(d => <Chip key={d} label={d}
-                                                                className={style.tags}/>) : null}
-          </div>
+        </div>
+        <div className={style.tagsContainer}>
+          <Typography variant="div" component="h3" className={style.title} gutterBottom>Tech used and
+            deliverables:</Typography>
+          {d?.tags && d?.tags.length ? d?.tags.map(d => <Chip key={d} label={d}
+                                                              className={style.tags}/>) : null}
         </div>
       </div>
     </Grid>;
