@@ -222,18 +222,19 @@ specific Page Views and Events and Mixpanel events to track user interactions wi
   },
   {
     id: 4,
-    project_name: "Pinegray",
+    project_name: "Confidential",
     type: "Web",
-    description: `<p>- Developed a Fintech Platform named "Pinegray Investments", an Investment Marketplace to raise
-money online and help businesses grow through equity crowdfunding.</p>
-<p>- Implemented Typeahead Search, CapTable, Manage Access to Invite people to check deals for
-funding, Investment Interest for both Owner and Invited User on deals.</p>
+    description: `<p>- Developed a Fintech Platform/Investment Marketplace to raise money online and help businesses
+  grow through equity crowdfunding.</p>
+<p>- Implemented Typeahead Search and Chat (both Full page and LinkedIn like Popup) with Emojis.</p>
+<p>- Designed Multi View (Card/List) with Infinite Scrolling for the Deals.</p>
 <p>- Designed and developed Front end responsive UI components with a mobile-first approach.</p>
-<p>- Used React.js and Next.js framework and implemented Server Side Rendered (SSR) and Static Site Generated (SSG) 
-pages and integrated RESTful APIs.</p>`,
+<p>- Used React.js, Next.js and implemented Server Side Rendering (SSR) and Static Site Generation
+(SSG) and integrated RESTful APIs.</p>
+<p>- Implemented Admin Panel to manage Users and Other Front Site Deals for Super Admin.</p>`,
     tags: ["Front-End Development", "Responsive Design", "React.js", "Next.js", "Redux", "Material-UI", "HTML", "CSS",
       "SCSS", "Javascript", "Stripe Payments Integration", "RESTful API Integration", "Google Maps with Places and Autocomplete", "Axios"],
-    note: "URL/Screen Shots can't be disclose due to NDA"
+    note: "Project Name, URL or Screen Shots can't be disclose due to NDA"
   },
   {
     id: 5,
