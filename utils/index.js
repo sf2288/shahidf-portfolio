@@ -222,7 +222,7 @@ specific Page Views and Events and Mixpanel events to track user interactions wi
   },
   {
     id: 4,
-    project_name: "Confidential",
+    project_name: "Confidential*",
     type: "Web",
     description: `<p>- Developed a Fintech Platform/Investment Marketplace to raise money online and help businesses
   grow through equity crowdfunding.</p>
