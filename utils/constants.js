@@ -31,7 +31,7 @@ export const META_KEYWORD = `Freelance, Freelancer, Front end, Web development, 
  website developer london, Freelancers in the UK, PeoplePerHour, 99design, Fiverr, india, Web Developer in london, 
  freelance web developer near london, uk, india, Frontend Web Developer in US, anywhere, worldwide, 
   I want to build a website, best frontend developer, React js developer needed, e-commerce, fintech, marketplace site development,
-   Redesign Rebuild Redevelop website, Payments gateway integration, Shahid F. upwork, Shahid Farooqui Linkedin, Upwork, 
+   Redesign Rebuild Redevelop website, Payments gateway integration, Shahid F. upwork, Shahid Farooqui LinkedIn, Upwork, 
    Truelancer, Software Developer, Portfolio, React.js, Next.js, Redux, React Hooks, Bootstrap, Material-UI, mui, tailwind css, 
    Progressive Web App (PWA), HTML, CSS, SCSS, Javascript, Typescript, Node.js, SEO, RESTful, Third-party API Integration, Stripe, 
    Google Maps, CMS, Vercel, Amazon Web Service (aws), S3 bucket, Landing Page Design, Home page design, Single Page Application (SPA), 
@@ -89,7 +89,7 @@ export const MY_SOCIAL_PROFILES = [
     name: "upwork"
   },
   {
-    title: "Linkedin",
+    title: "LinkedIn",
     url: "https://in.linkedin.com/in/shahid-farooqui/",
     src: `${IMAGES_BUCKET_URL}linkedin.svg`,
     target: "_blank",
