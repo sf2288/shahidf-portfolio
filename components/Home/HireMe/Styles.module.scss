@@ -20,12 +20,12 @@
     }
 
     .hireMeButton {
-      width: 220px;
       font-size: 20px;
       text-transform: inherit;
       border-radius: 50px;
       background: $colorWhite;
       color: $colorBlue;
+      padding: 6px 15px;
 
       .icon {
         margin-left: 1rem;

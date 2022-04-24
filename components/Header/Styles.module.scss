@@ -1,5 +1,5 @@
 @import "./styles/variables.scss";
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
 .nav {
   position: fixed;
@@ -11,7 +11,7 @@
   background-color: $colorWhite;
 
   .swipeableDrawerContainer {
-    display: none
+    display: none;
   }
 
   .container {
@@ -40,14 +40,14 @@
         cursor: pointer;
         font-size: 18px;
         font-weight: bold;
-        padding: 1rem .5rem;
+        padding: 1rem 0.5rem;
 
         .selected {
           color: $colorBlue;
         }
 
         &:hover {
-          color: #556cd6;
+          color: $colorBlue;
         }
       }
     }
@@ -60,7 +60,7 @@
       transition: unset;
 
       .icon {
-        margin-left: .5rem;
+        margin-left: 0.5rem;
       }
     }
   }
@@ -98,7 +98,7 @@
 
       .logo {
         display: block !important;
-        font-family: 'Pacifico', cursive;
+        font-family: "Pacifico", cursive;
         font-size: 30px;
         text-align: center;
         flex-grow: 1;
@@ -141,7 +141,7 @@
 
       .logo {
         display: block !important;
-        font-family: 'Pacifico', cursive;
+        font-family: "Pacifico", cursive;
         font-size: 30px;
         text-align: center;
         flex-grow: 1;
@@ -157,7 +157,7 @@
         font-size: 12px;
 
         .icon {
-          display: none
+          display: none;
         }
       }
     }
@@ -169,6 +169,16 @@
       bottom: 16px;
       padding: 1.5rem !important;
       z-index: 1000;
+    }
+  }
+}
+
+@media only screen and(max-width: 768px) {
+  .nav {
+    .container {
+      .btnHireMe {
+        padding: 4px 10px;
+      }
     }
   }
 }

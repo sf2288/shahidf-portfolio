@@ -107,7 +107,7 @@ const FormComponent = () => {
 
     <Grid container spacing={5}>
       <Grid item md={7} sm={12} xs={12} className={style.form}>
-        <Card className="bgGray">
+        <Card>
           <CardContent>
             <form onSubmit={sendEmail}>
               <Grid container spacing={3}>

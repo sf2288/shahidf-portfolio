@@ -5,19 +5,19 @@ export const Routes = [
   {
     title: "Home",
     route: "#home",
-    id: "home"
+    id: "home",
   },
   {
     title: "Portfolio",
     route: "#portfolio",
     id: "portfolio",
-    subTitle: "Each project is a unique piece of development"
+    subTitle: "Each project is a unique piece of development",
   },
   {
     title: "About Me",
     route: "#about",
     id: "about",
-    subTitle: "A passionate Front-End Developer based in"
+    subTitle: "A passionate Front-End Developer based in",
   },
   /*{
     title: "Work Process",
@@ -29,118 +29,118 @@ export const Routes = [
     title: "Work History",
     route: "#work-history",
     id: "work-history",
-    subTitle: "Working Period"
+    subTitle: "Working Period",
   },
   {
     title: "Skills",
     route: "#skills",
-    id: "skills"
-  },
+    id: "skills",
+  } /*
   {
     title: "Test Waters",
     route: "#website-report",
     id: "website-report",
     subTitle: "Book Your Free Technical Report"
-  },
+  },*/,
   {
     title: "Contact",
     route: "#contact",
     id: "contact",
-    subTitle: "Let’s create something amazing together"
-  }
+    subTitle: "Let’s create something amazing together",
+  },
 ];
 
 export const HIRE_ME_ID = {
   title: "Hire Me",
   route: "#hire-me",
-  id: "hire-me"
+  id: "hire-me",
 };
 
 export const WEBSITE_REPORT = {
   title: "Want to test or fix your website performance?",
   route: "#website-report",
   id: "website-report",
-  subTitle: "Book Your Free Technical Report"
+  subTitle: "Book Your Free Technical Report",
 };
 
 export const SkillsList = [
   {
     label: "React.js",
-    url: "skills/reactjs.svg"
+    url: "skills/reactjs.svg",
   },
   {
     label: "Next.js",
-    url: "skills/nextjs-black.svg"
+    url: "skills/nextjs-black.svg",
   },
   {
     label: "Redux",
-    url: "skills/redux.svg"
+    url: "skills/redux.svg",
   },
   {
     label: "Material-UI",
-    url: "skills/material-ui.svg"
+    url: "skills/material-ui.svg",
   },
   {
     label: "Bootstrap",
-    url: "skills/bootstrap.svg"
+    url: "skills/bootstrap.svg",
   },
   {
     label: "Tailwind CSS",
-    url: "skills/tailwindcss-short.svg"
+    url: "skills/tailwindcss-short.svg",
   },
   {
     label: "HTML5",
-    url: "skills/html-5.svg"
+    url: "skills/html-5.svg",
   },
   {
     label: "SCSS/SASS",
-    url: "skills/sass.svg"
+    url: "skills/sass.svg",
   },
   {
     label: "Javascript",
-    url: "skills/javascript.svg"
+    url: "skills/javascript.svg",
   },
   {
     label: "Typescript",
-    url: "skills/typescript.svg"
+    url: "skills/typescript.svg",
   },
   {
     label: "Progressive Web App",
-    url: "skills/pwa.svg"
+    url: "skills/pwa.svg",
   },
   {
     label: "Graphql",
     url: "skills/graphql.svg",
-    hidden: true
+    hidden: true,
   },
   {
     label: "API Integration",
-    url: "skills/api.svg"
+    url: "skills/api.svg",
   },
   {
     label: "Google Maps Integration",
-    url: "skills/google-maps.svg"
+    url: "skills/google-maps.svg",
   },
   {
     label: "Stripe Payments Integration",
-    url: "skills/stripe.svg"
+    url: "skills/stripe.svg",
   },
   {
     label: "AWS",
-    url: "skills/aws.svg"
+    url: "skills/aws.svg",
   },
   {
     label: "Figma",
-    url: "skills/figma.svg"
-  }
-].filter(d => !d?.hidden);
+    url: "skills/figma.svg",
+  },
+].filter((d) => !d?.hidden);
 
 const getUUID = () => {
   let dt = new Date().getTime();
-  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
     var r = (dt + Math.random() * 16) % 16 | 0;
     dt = Math.floor(dt / 16);
-    return (c === "x" ? r : (r & 0x3 | 0x8)).toString(16);
+    return (c === "x" ? r : (r & 0x3) | 0x8).toString(16);
   });
 };
 
@@ -155,9 +155,26 @@ aligning business requirements with technical ones.</p>
 <p>- Translated designs and wireframes into quality code.</p>
 <p>- Developed large Dynamic UI forms to and from API data using Redux Form library.</p>
 <p>- Implemented some Node.js base Rest APIs.</p>`,
-    tags: ["Front-End Development", "Responsive Design", "Mockup", "React.js", "Redux", "Bootstrap", "Reactstrap", "HTML", "CSS",
-      "SCSS", "Javascript", "Stripe Payments Integration", "RESTful API Integration", "Duda", "Google Maps Autocomplete",
-      "Google Analytics", "Axios", "Chart.js"],
+    tags: [
+      "Front-End Development",
+      "Responsive Design",
+      "Mockup",
+      "React.js",
+      "Redux",
+      "Bootstrap",
+      "Reactstrap",
+      "HTML",
+      "CSS",
+      "SCSS",
+      "Javascript",
+      "Stripe Payments Integration",
+      "RESTful API Integration",
+      "Duda",
+      "Google Maps Autocomplete",
+      "Google Analytics",
+      "Axios",
+      "Chart.js",
+    ],
     project_url: "https://paid.com/",
     images: [
       "paid/PaidCart+Store+Setup.webp",
@@ -167,8 +184,8 @@ aligning business requirements with technical ones.</p>
       "paid/Create-Invoices-Quickly.webp",
       "paid/recurring-billing-for-repeat-customers1.webp",
       "paid/PaidWeb-SitesList.webp",
-      "paid/Template1.webp"
-    ]
+      "paid/Template1.webp",
+    ],
   },
   {
     id: 2,
@@ -178,20 +195,33 @@ aligning business requirements with technical ones.</p>
 based on Play store Reviews Ratings, Downloads, etc using NLP-based Rest APIs.</p>
 <p>- Implemented Typeahead Search of Apps, Charts (PIE, BAR), and Word Cloud on the basis of Rest APIs.</p>
 <p>- Designed and developed Front end responsive UI components with a mobile-first approach using Material-UI.</p>`,
-    tags: ["Front-End Development", "Responsive Design", "React.js", "Redux", "Material-UI", "HTML", "CSS", "SCSS",
-      "Javascript", "RESTful API Integration", "Axios", "Recharts", "Chart.js", "PDF.js"],
+    tags: [
+      "Front-End Development",
+      "Responsive Design",
+      "React.js",
+      "Redux",
+      "Material-UI",
+      "HTML",
+      "CSS",
+      "SCSS",
+      "Javascript",
+      "RESTful API Integration",
+      "Axios",
+      "Recharts",
+      "Chart.js",
+      "PDF.js",
+    ],
     project_url: "https://www.sentient-app.tech/",
     note: "Client has moved web app to their personal server as a result Login will not work",
-    images:
-      [
-        "sentient/Sentient-Landing1.webp",
-        "sentient/Sentient-Landing2.webp",
-        "sentient/Sentient+Dashboard.webp",
-        "sentient/Sentient-App-Pros-Cons.webp",
-        "sentient/Sentient-Product-Details-Modal.webp",
-        "sentient/Sentient-Dashboard-mobile.webp",
-        "sentient/Sentient-Pros-Cons-mobile.webp"
-      ]
+    images: [
+      "sentient/Sentient+Dashboard.webp",
+      "sentient/Sentient-App-Pros-Cons.webp",
+      "sentient/Sentient-Product-Details-Modal.webp",
+      "sentient/Sentient-Dashboard-mobile.webp",
+      "sentient/Sentient-Pros-Cons-mobile.webp",
+      "sentient/Sentient-Landing1.webp",
+      "sentient/Sentient-Landing2.webp",
+    ],
   },
   {
     id: 3,
@@ -206,19 +236,34 @@ pages and integrated RESTful APIs.</p>
 <p>- Integrated Stripe for Payment and maintained User Subscriptions, Google Tag Manager (GTM) to log
 specific Page Views and Events and Mixpanel events to track user interactions with a web application.</p>
 <p>- Implemented Admin Panel to manager Users and Other Front Site Listings for Super Admin.</p>`,
-    tags: ["Front-End Development", "Responsive Design", "React.js", "Next.js", "Redux", "Material-UI", "HTML", "CSS",
-      "SCSS", "Javascript", "Stripe Payments Integration", "RESTful API Integration", "Google Maps with Places and Autocomplete",
-      "Google Analytics", "Mix Panel", "Google and Facebook Login", "Axios"],
+    tags: [
+      "Front-End Development",
+      "Responsive Design",
+      "React.js",
+      "Next.js",
+      "Redux",
+      "Material-UI",
+      "HTML",
+      "CSS",
+      "SCSS",
+      "Javascript",
+      "Stripe Payments Integration",
+      "RESTful API Integration",
+      "Google Maps with Places and Autocomplete",
+      "Google Analytics",
+      "Mix Panel",
+      "Google and Facebook Login",
+      "Axios",
+    ],
     project_url: "https://www.luxembourgexpats.lu/",
-    images:
-      [
-        "luxexpats/Add+New+Post+Modal+new.webp",
-        "luxexpats/Real-Estate-in-Luxembourg-new.webp",
-        "luxexpats/Real-Estate-Details-Page1.webp",
-        "luxexpats/Real-Estate-Details-Page2.webp",
-        "luxexpats/Real-Estate-Payment-new.webp",
-        "luxexpats/Users+Chat1.webp"
-      ]
+    images: [
+      "luxexpats/Add+New+Post+Modal+new.webp",
+      "luxexpats/Real-Estate-in-Luxembourg-new.webp",
+      "luxexpats/Real-Estate-Details-Page1.webp",
+      "luxexpats/Real-Estate-Details-Page2.webp",
+      "luxexpats/Real-Estate-Payment-new.webp",
+      "luxexpats/Users+Chat1.webp",
+    ],
   },
   {
     id: 4,
@@ -232,9 +277,23 @@ specific Page Views and Events and Mixpanel events to track user interactions wi
 <p>- Used React.js, Next.js and implemented Server Side Rendering (SSR) and Static Site Generation
 (SSG) and integrated RESTful APIs.</p>
 <p>- Implemented Admin Panel to manage Users and Other Front Site Deals for Super Admin.</p>`,
-    tags: ["Front-End Development", "Responsive Design", "React.js", "Next.js", "Redux", "Material-UI", "HTML", "CSS",
-      "SCSS", "Javascript", "Stripe Payments Integration", "RESTful API Integration", "Google Maps with Places and Autocomplete", "Axios"],
-    note: "Project Name, URL or Screen Shots can't be disclose due to NDA"
+    tags: [
+      "Front-End Development",
+      "Responsive Design",
+      "React.js",
+      "Next.js",
+      "Redux",
+      "Material-UI",
+      "HTML",
+      "CSS",
+      "SCSS",
+      "Javascript",
+      "Stripe Payments Integration",
+      "RESTful API Integration",
+      "Google Maps with Places and Autocomplete",
+      "Axios",
+    ],
+    note: "Project Name, URL or Screen Shots can't be disclose due to NDA",
   },
   {
     id: 5,
@@ -245,32 +304,49 @@ Board Rentals" website.</p>
 <p>- Created Front end responsive UI components with a mobile-first approach.</p>
 <p>- Maintained Cart items and Integrated Stripe for payments.</p>
 <p>- Designed pages from the given layout.</p>`,
-    tags: ["Front-End Development", "Responsive Design", "React.js", "Redux", "Bootstrap", "HTML", "CSS", "SCSS",
-      "Javascript", "API Integration", "Stripe Payments", "Axios"],
+    tags: [
+      "Front-End Development",
+      "Responsive Design",
+      "React.js",
+      "Redux",
+      "Bootstrap",
+      "HTML",
+      "CSS",
+      "SCSS",
+      "Javascript",
+      "API Integration",
+      "Stripe Payments",
+      "Axios",
+    ],
     project_url: "https://waterboyrentals.com/",
-    images:
-      [
-        "waterboy/Home.webp",
-        "waterboy/Booking.webp",
-        "waterboy/faqs.webp"
-      ]
+    images: [
+      "waterboy/Home.webp",
+      "waterboy/Booking.webp",
+      "waterboy/faqs.webp",
+    ],
   },
   {
     id: 6,
     project_name: "Resume Maker, CV Builder",
     type: "Android App",
+    project_type: "android",
     description: `<p>- Worked as an Android Application Developer.</p>
 <p>- Developed core features for the mobile app and database wrapper functions for data staging.</p>
 <p>- Integrated Back end APIs, Background Services, Map integration, and third-party SDKs.</p>
 <p>- Application Maintenance.</p>`,
-    tags: ["Mobile App Development", "Java", "Android", "RESTful API Integration"],
-    project_url: "https://bit.ly/3q8BIqK"
-  }
-].filter(d => !d?.hidden);
+    tags: [
+      "Mobile App Development",
+      "Java",
+      "Android",
+      "RESTful API Integration",
+    ],
+    project_url: "https://bit.ly/3q8BIqK",
+  },
+].filter((d) => !d?.hidden);
 
 export const sendGoogleAnalyticsEvent = (action, params) => {
   ga.event({
     action,
-    params
+    params,
   });
 };

@@ -6,19 +6,23 @@
 
   .about {
     .aboutContent {
-
       .title {
-        font-family: 'Pacifico', cursive;
+        font-family: "Pacifico", cursive;
         font-size: 70px;
         padding-bottom: 1rem;
       }
 
       .subTitle {
+        line-height: 2.2rem;
         .subText {
           color: $colorBlue;
-          border-bottom: 2px solid;
-          font-weight: bold;
         }
+      }
+
+      .jss {
+        color: $colorGreen !important;
+        font-weight: bold;
+        border-bottom: 2px solid;
       }
 
       .mainCTAs {
@@ -98,7 +102,6 @@
 
 @media only screen and(max-width: 900px) {
   .firstSection {
-
     .about {
       display: flex;
       flex-direction: column-reverse;
@@ -115,7 +118,7 @@
         }
 
         .scrollDownArrow {
-          left: 45%
+          left: 45%;
         }
       }
     }
@@ -139,14 +142,13 @@
     height: unset;
 
     .about {
-
       .aboutContent {
         .title {
           font-size: 3rem;
         }
 
         .subTitle {
-          font-size: 1.2rem
+          font-size: 1.2rem;
         }
 
         .mainCTAs {
@@ -182,7 +184,7 @@
 
             .socialIcon {
               margin: 0;
-              padding: 0
+              padding: 0;
             }
           }
         }

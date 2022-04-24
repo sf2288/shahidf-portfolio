@@ -18,6 +18,8 @@ import { TitlePattern } from "../../Common/TitlePattern";
 import { GridView, InfoOutlined, Splitscreen } from "@mui/icons-material";
 import { useInView } from "react-intersection-observer";
 import dynamic from "next/dynamic";
+import { IMAGES_BUCKET_URL } from "../../../utils/constants";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const SliderComponent = dynamic(() => import("./SliderComponent"));
 
@@ -77,6 +79,11 @@ const Portfolio = ({ projects = [] }) => {
 
             <Typography paragraph className={style.description}>
               <div dangerouslySetInnerHTML={{ __html: d?.description }}/>
+              <LazyLoadImage src={`${IMAGES_BUCKET_URL}skills/${d?.project_type === "android" ?
+                "android.svg" : "reactjs.svg"}`}
+                             alt={d?.project_type === "android" ? "android" : "react.js"}
+                             className={style.bgIcon}
+                             height={240}/>
             </Typography>
           </> : null}
         </div>

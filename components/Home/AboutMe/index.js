@@ -18,55 +18,85 @@ const AboutMe = () => {
   }, [isAboutMeSectionInView]);
 
   const renderAnimation = useMemo(() => {
-    return <LazyLoadImage src={`${IMAGES_BUCKET_URL}about/about_me.gif`}
-                          alt={MY_NAME}
-                          height={300}
-                          width={500}/>;
+    return (
+      <LazyLoadImage
+        src={`${IMAGES_BUCKET_URL}about/about_me.gif`}
+        alt={MY_NAME}
+        height={300}
+        width={500}
+      />
+    );
   }, []);
 
-  return <section id={Routes[2].id} className={`${style.aboutMeSection} commonSecondarySection`} ref={aboutMeRef}>
-    <Container maxWidth="lg">
-      <Grid container>
-        <Grid item>
-          <Typography variant="div" component="h2" className="title">
-            <TitlePattern/> {Routes[2].title}
-          </Typography>
-          <Typography variant="div" component="h3" className="subTitle">
-            {Routes[2].subTitle} {COUNTRY}
-          </Typography>
-        </Grid>
-      </Grid>
-    </Container>
-    <Container maxWidth="lg" className={style.aboutMe}>
-      <Grid container spacing={2}>
-        <Grid item md={7} xs={12}>
-          <div className={style.myInfo} data-aos="fade-zoom-in" data-aos-easing="ease-in-back">
-            <Typography paragraph>
-              A <b>front-end web developer</b> with over 4 years of experience. I work with agencies/individuals
-              across the globe to create high performance & rich interactive websites that work across all platforms &
-              devices.
-              <br/><br/>
-              Although I'm very familiar with using frameworks, my websites are primarily hand-coded using <b>HTML5,
-              CSS3, React.js, Next.js, Material-UI & ofCourse JavaScript by following best-practices</b>.
-              <br/><br/>
-              With a strong emphasis on <b>Progressive Enhancement</b>, I look for creative ways to push the
-              boundaries of website front-end code without compromising on browser support and performance.
-              <br/><br/>
-              In a quest for always keeping myself updated, I read articles on various blogs like Medium, Daily.dev,
-              Quora, etc and attend conferences & meetups.
+  return (
+    <section
+      id={Routes[2].id}
+      className={`${style.aboutMeSection} commonSecondarySection`}
+      ref={aboutMeRef}
+    >
+      <Container maxWidth="lg">
+        <Grid container>
+          <Grid item>
+            <Typography variant="div" component="h2" className="title">
+              <TitlePattern /> {Routes[2].title}
             </Typography>
-            <Typography paragraph className={style.highLightedText}>
-              Allora lavoriamo insieme! &#128521;
+            <Typography variant="div" component="h3" className="subTitle">
+              {Routes[2].subTitle} {COUNTRY}
             </Typography>
-          </div>
+          </Grid>
         </Grid>
-        <Grid item md={5} xs={12} className={style.myImageContainer}>
-          {(isAboutMeSectionInView || hasLoadedOnce) ? <>{renderAnimation}</> : null}
+      </Container>
+      <Container maxWidth="lg" className={style.aboutMe}>
+        <Grid container spacing={2}>
+          <Grid item md={7} xs={12}>
+            <div
+              className={style.myInfo}
+              data-aos="fade-zoom-in"
+              data-aos-easing="ease-in-back"
+            >
+              <Typography paragraph>
+                A <b>Front-End Web Developer</b> with 4+ years of experience. I
+                help solo entrepreneurs, startups, and small and medium-sized
+                businesses by developing high performant & interactive web apps
+                that work across all platforms & devices.
+                <br />
+                <br />
+                My primary tech stack are{" "}
+                <b>
+                  HTML5, CSS3, React.js, Next.js, Redux, JavaScript, Typescript,
+                  Material-UI, Bootstrap, Tailwind CSS etc
+                </b>
+                .
+                <br />
+                <br />I do follow and use <b>
+                  latest tools and best-practices
+                </b>{" "}
+                in my projects.
+                <br />
+                <br />
+                With a strong emphasis on <b>Progressive Enhancement</b>, I look
+                for creative ways to push the boundaries of website front-end
+                code without compromising on browser support and performance.
+                <br />
+                <br />
+                In a quest for always keeping myself updated, I read articles on
+                various blogs like Medium, Daily.dev, Quora, etc and attend
+                conferences & meetups.
+              </Typography>
+              <Typography paragraph className={style.highLightedText}>
+                Allora lavoriamo insieme! &#128521;
+              </Typography>
+            </div>
+          </Grid>
+          <Grid item md={5} xs={12} className={style.myImageContainer}>
+            {isAboutMeSectionInView || hasLoadedOnce ? (
+              <>{renderAnimation}</>
+            ) : null}
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>
-  </section>;
+      </Container>
+    </section>
+  );
 };
 
 export default AboutMe;
-
